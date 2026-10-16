@@ -42,6 +42,7 @@ Dependencies define eligibility, not permission to batch implementation. Root tr
 
 | 02b | Unified site revamp bundle (owner-approved exception) | frontend | 01 | [Spec](02-unified-site-revamp.md) |
 | 34 | Customer accounts & password auth (Clerk) | backend | 17,18,20 | [Spec](34-customer-auth.md) |
+| 35 | Service playbook sync & planning (accomplishment report, team assignments, contract sync) | PM (planning) | None | [Spec](35-service-playbook-sync.md) |
 
 Optional public AI pilot (28) is demand-gated. Scaling review (32) may conclude that no new
 runtime is needed. Native mobile, microservices, customer portal and payment collection have

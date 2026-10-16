@@ -1,0 +1,629 @@
+  404           404HubSpot
+                Websites | Apps | M-Pesa | Tech Training
+
+
+
+
+Service Architecture
+& Growth Playbook
+FROM A LIST OF SERVICES TO PATHS CLIENTS CAN BUY
+
+Competitor research, Kenya market pricing, concrete service and course
+paths, team-role mapping and a website update plan.
+
+
+
+
+    $ research --market kenya --competitors 6
+       scanned: bonnie-computer-hub, moringa, mctaba, agency rate cards
+    $ design --paths build,integrate,apps,academy,care
+       tiers: launch | business | commerce | platform
+    $ map --team roles --to services,courses
+       output: pricing ladder + 90-day roadmap                       [ok]
+
+
+
+
+Prepared for the 404HubSpot team | October 2026 | Nakuru, Kenya
+Prices marked Proposed are recommendations anchored to public market benchmarks, not quotes.
+    01 | EXECUTIVE SUMMARY
+
+
+    Clients don't buy a list. They buy a path.
+    When a client asks "what do you charge for a website from zero to hero?", the answer has to be one page, one
+    price band and one timeline.
+
+
+
+
+    KSh 10k -                                                                                                        KSh 100k -
+     500k+                                    2 - 5x                            3 - 6 days                             200k
+                                                                              dev time for a reliable M-Pesa
+ spread of website prices in Kenya    agency rates vs freelancer rates                  STK Push                    typical full-stack bootcamp fees
+
+
+
+
+What the research says
+• Competitors sell outcomes with a price. Bonnie Computer Hub puts a "from KSh" figure on every one of its website
+types and pairs it with a 3-month academy that ends in an internship. Visitors know the cost before they message.
+• The market is wide, so bands matter. A basic Nairobi site can cost KSh 10,000 while complex e-commerce can pass
+KSh 300,000. Without clear tiers, every enquiry becomes a custom negotiation.
+• Nakuru is open ground. The local tech scene is described as emerging with no anchor hub like LakeHub or SwahiliBox,
+and county ICT hubs focus on basics such as office software and online freelancing, not software engineering.
+• Your edge is already in your meta description: M-Pesa integration, modern web and mobile builds, plus classes.
+Competitors mostly do one of these. Few do all of them with a build-and-teach loop.
+
+
+The proposal in one glance
+ Pillar                   What the client gets                           Entry offer                           Flagship offer
+
+ BUILD                    Websites, stores and web platforms             Free site audit, KSh 5,000            Business, Commerce and Platform
+                                                                         Discovery Sprint                      builds
+
+ INTEGRATE                M-Pesa and payments done properly              Free Daraja readiness check           Full Daraja suite with reconciliation
+
+ APPS & SYSTEMS           Mobile apps, POS, inventory, booking           Idea workshop                         Cross-platform MVP with admin
+                                                                                                               dashboard
+
+ ACADEMY                  Courses from first line of code to             Spark course, KSh 3,500               Full-Stack Marathon with
+                          job-ready                                                                            internship
+
+ CARE                     Monthly upkeep so nothing breaks               Included 30-60 days                   Care Lite, Plus and Pro plans
+
+
+   How to read this document
+   Market figures come from public sources listed on the last page. Anything marked Proposed is my recommendation for your
+   pricing, positioned against those benchmarks. Team slots are role-based because your team page could not be read
+   automatically. Fill in names in section 08.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                                     2
+    02 | MARKET BENCHMARKS
+
+
+    What Kenya charges today
+    Public prices from agencies, freelancers, hosting companies and coding schools, side by side with the bands we
+    propose.
+
+
+
+ Service                       What the market shows                                                  Proposed 404HubSpot band
+
+ Landing page / 1-5            Basic Nairobi sites from KSh 10,000; one agency rate card lists a      KSh 20,000 - 35,000
+ pages                         single-page landing at KES 15,000
+
+ Business website (5-10        Bonnie Computer Hub corporate sites from KSh 35,000; agency            KSh 40,000 - 75,000
+ pages)                        card KES 34,000; freelancer range KES 20,000 - 50,000
+
+ E-commerce store              Bonnie from KSh 45,000; agency card KES 70,000; broader Nairobi        KSh 85,000 - 150,000 with
+                               range KSh 80,000 - 300,000+                                            M-Pesa
+
+ Web app / portal              Agency card KES 120,000; freelancer KES 100,000 - 300,000+;            From KSh 150,000
+                               custom apps from KSh 200,000 in some quotes
+
+ Business system (POS,         Agency card: basic system KES 80,000; custom software KES              KSh 90,000 - 200,000
+ inventory, booking)           160,000
+
+ Mobile app                    Agency card: cross-platform KES 220,000; Flutter backend adds          KSh 150,000 - 250,000 MVP
+                               roughly 30-50% on top of the app
+
+ M-Pesa integration            Packages from KSh 15,000; KSh 25,000 - 60,000 inside a store           KSh 25,000 - 45,000 add-on
+                               build; Daraja itself is free
+
+ Monthly upkeep                Agency card KES 10,000 per month; annual maintenance KSh               KSh 2,500 / 6,000 / 12,000 per
+                               10,000 - 50,000; M-Pesa upkeep from KSh 5,000 a year                   month
+
+ Coding courses                Moringa full-stack KES 174,000 - 200,000; McTaba KES 100,000 -         KSh 3,500 to 85,000 ladder
+                               120,000; Zindua about KES 150,000; eMobilis from KES 25,000;
+                               micro courses KES 2,000 - 10,000
+
+
+
+   Positioning call
+   Sit in the middle of the market, not at the bottom. The cheapest options start around KSh 10,000 but give no support or
+   integration. Agencies charge 2-5x freelancer rates. Your angle: agency-grade process at near-freelancer entry prices, with
+   M-Pesa and a care plan built in.
+
+
+
+Other costs clients ask about
+ Item                                     Typical range                            Note
+
+ Domain + shared hosting                  KSh 2,000 - 10,000 a year                Client should own the account; we set it up
+
+ SEO setup                                KSh 5,000 - 20,000                       Sell as an add-on or bundle into Business
+
+ Daraja production approval               2 - 10 working days                      Start paperwork on day 1, it is the usual delay
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                     3
+    03 | COMPETITOR TEARDOWN
+
+
+    Who we are up against, and what to take from
+    each
+    Bonnie Computer Hub plus the courses and agencies a client would compare you with.
+
+
+
+ Competitor                What they do well                                            Gap we can use
+
+ Bonnie Computer           About 50 website types across 8 industries, each with        Front-end and back-end tracks still marked
+ Hub                       a "from KSh" price. Three academy tracks with                coming soon. Course stack is HTML, CSS, JS,
+                           certification and internship. WhatsApp on every page,        PHP and MySQL. Team page shows one lead
+                           client testimonials with live-site links, a blog with        developer and communications roles, so
+                           practical posts, an enquiry cart.                            engineering depth is not visible. No mobile-app or
+                                                                                        M-Pesa headline on the pages read.
+
+ Moringa School            Established brand with a 27-35 week full-stack               Fees of KES 174,000 - 200,000 put it out of reach
+                           program, a KES 40,000 intro course and up to 12              for many Nakuru learners; no local presence here.
+                           months of post-graduation support.
+
+ McTaba Labs               26-week full-stack plus AI with M-Pesa instalments, an       Nairobi hub. Fees sit around KES 100,000 -
+                           African Stack focus (M-Pesa, WhatsApp, USSD) and             120,000. We can match the African Stack idea at
+                           self-paced courses from KES 2,999.                           a lower price with a real-client internship.
+
+ Agency rate cards         Instant estimators, fixed-scope written quotes,              Nairobi-centric. We can copy the transparency
+ (for example TecIT,       two-week check-ins with a clickable build, WhatsApp          and add Nakuru presence and training.
+ Mackdish)                 group per project, 60 days of post-launch fixes.
+
+ Local public hubs         Free or low-cost digital skills: Word, Excel, freelancing,   Not software engineering. Learners who finish
+ (Nakuru)                  ICT hubs in several wards.                                   need a next step, and that step is our Spark and
+                                                                                        Frontend tracks.
+
+
+
+Steal / Avoid / Own
+  STEAL                                          AVOID                                          OWN
+  • Visible "from KSh" prices on every           • Announcing tracks before they are            • Build + integrate + teach under one
+    service                                        ready                                           roof
+  • Fixed-scope quotes and two-week              • Dozens of near-identical service pages       • M-Pesa and African Stack as a
+    demos                                        • A team page with no skills shown                headline
+  • Internship after the course                  • Quoting before scoping                       • Nakuru and Rift Valley presence
+  • M-Pesa instalments for fees                  • Pricing at the bottom of the market          • Modern stack: TypeScript, React,
+  • WhatsApp-first contact                                                                         Next.js, Node, PostgreSQL
+                                                                                                • Academy graduates feeding the
+                                                                                                   delivery bench
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                           4
+    04 | SERVICE ARCHITECTURE
+
+
+    Five pillars, four rungs each
+    Every pillar has an entry offer, a core offer, a premium offer and something recurring, so a client always knows the
+    next step.
+
+
+
+ Pillar             1. Entry                   2. Core                       3. Premium                       4. Recurring
+
+ BUILD              Free site audit            Launch: KSh 20-35k            Commerce: KSh 85-150k            Care Lite / Plus / Pro
+                    Discovery Sprint KSh       Business: KSh 40-75k          Platform: from KSh 150k          SEO reports
+                    5,000 (credited to
+                    project)
+
+ INTEGRATE          Free Daraja readiness      STK Push add-on               Full Daraja suite: C2B, B2C,     Yearly upkeep:
+                    check (paybill or till,    KSh 25-45k                    reconciliation                   credentials, API
+                    documents)                                               from KSh 60k                     updates
+
+ APPS &             Idea workshop              Business system (POS,         Cross-platform MVP + admin       App care
+ SYSTEMS            KSh 5,000                  inventory, booking)           dashboard                        KSh 10-15k per month
+                                               KSh 90-200k                   KSh 150-250k
+
+ ACADEMY            Spark                      Frontend or Backend track     Full-Stack Marathon              Alumni mentoring,
+                    KSh 3,500                  KSh 25,000 each               KSh 85,000                       corporate and school
+                                                                                                              workshops
+
+ CARE               30-60 days fixes           Care Lite                     Care Plus                        Care Pro
+                    included in every build    KSh 2,500 per month           KSh 6,000 per month              KSh 12,000 per month
+
+
+
+How a client moves through the ladder
+ Visit site              WhatsApp or           Discovery call        Build                 Launch + train         Care plan
+ sees price bands        estimator             scope + fixed quote   demo every 2          handover session       monthly upkeep
+                         rough range in                              weeks
+                         minutes
+
+
+
+   Why the Discovery Sprint matters
+   The most common pricing mistake is quoting before understanding the project, because "a website" can mean a hundred
+   different things. A KSh 5,000 paid scoping step filters out time-wasters, produces a written fixed-scope quote and is credited
+   back when the client proceeds.
+
+
+
+Two ways the pillars feed each other
+• Academy to Build: the best graduates join your delivery bench through the internship, which lowers your cost per project.
+• Build to Academy: every client project becomes a case study and a capstone brief for students.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                     5
+    05 | PATH 1: WEB DEVELOPMENT, ZERO TO HERO
+
+
+    The answer to "how much for a website?"
+    Four tiers, one five-phase process, fixed scope. This is the page to show a client who walks in today.
+
+
+
+
+  LAUNCH                             BUSINESS                          COMMERCE                           PLATFORM
+
+  KSh 20,000 -                       KSh 40,000 -                      KSh 85,000 -                       From KSh 150,000
+                                                                                                          Proposed | 8-16 weeks
+  35,000                             75,000                            150,000
+  Proposed | 7-10 days               Proposed | 2-3 weeks              Proposed | 4-6 weeks               • Portals, booking, SaaS
+  • 1-5 pages, mobile-first          • 5-10 pages with simple          • Online store + admin               MVP
+  • Contact form + WhatsApp            CMS                                dashboard                       • Auth, roles and database
+    button                           • SEO basics + Google             • M-Pesa STK Push +                • Fixed-scope milestones
+  • Domain, hosting and SSL            Business profile                   order flow                      • Handover docs + 90 days
+    set up                           • Analytics + speed pass          • Failed-payment handling            support
+  • 30 days of fixes                 • 60 days of support              • Staff training session
+
+
+
+The five phases every project follows
+ Phase                Timing              What happens                                               Client sees
+
+ 1. Discover          Days 1-3            Call, goals, content check, fixed-scope quote              Written quote and timeline
+
+ 2. Design            Week 1              Wireframes, brand colours and fonts, page list             Clickable design to approve
+
+ 3. Build             Weeks 2-4           Two-week sprints with a working build each time            Demo link every 2 weeks
+
+ 4. Launch            End of build        Domain, SSL, M-Pesa live, speed and security check,        Live site + handover session
+                                          training
+
+ 5. Grow              Month 2 onward      Care plan, SEO reports, upgrade path to a bigger tier      Monthly report
+
+
+  Add-ons (Proposed)                                      Care plans (Proposed, monthly)
+  • M-Pesa STK Push: KSh 25,000 - 45,000                  • Lite KSh 2,500: hosting oversight, backups, security updates, one small
+  • SEO setup: KSh 10,000 - 20,000                          change
+  • Extra page: from KSh 3,000                            • Plus KSh 6,000: uptime monitoring, monthly report, three changes, priority
+  • Half-day staff training: KSh 5,000                      WhatsApp
+                                                          • Pro KSh 12,000: five dev hours, quarterly review, API and M-Pesa upkeep
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                       6
+    06 | WORKED QUOTE AND PATH 2
+
+
+    A real answer for a real client, then payments,
+    apps and systems
+    Use this quote format on the website and over WhatsApp.
+
+
+
+
+Worked example: a retail shop wants an online store
+ Line item                                Amount (KSh)                      Notes
+
+ Discovery Sprint                         5,000                             Credited back on signing the project
+
+ Commerce build                           110,000                           Store, admin, M-Pesa STK Push, training session
+
+ SEO setup                                15,000                            Titles, Google Business profile, sitemap
+
+ Project total                            125,000                           Fixed scope, 5 weeks
+
+ Payment schedule                         62,500 / 37,500 / 25,000          50% to start, 30% at design approval, 20% at launch
+
+ Care Plus (from month 3)                 6,000 per month                   First 60 days of support included in the build
+
+
+
+Path 2: payments, systems and mobile apps
+  M-PESA INTEGRATION                              BUSINESS SYSTEM                             MOBILE APP MVP
+
+  KSh 25,000 - 45,000                             KSh 90,000 - 200,000                        KSh 150,000 - 250,000
+  Proposed | 1-2 weeks incl. approval             Proposed | 4-10 weeks                       Proposed | 8-14 weeks
+  • STK Push, callbacks, reconciliation           • POS, inventory or booking                 • Android + iOS from one codebase
+  • Sandbox testing, then go-live                 • Roles, reports, receipts                  • OTP login, M-Pesa, push
+  • Paybill or till set up guidance               • On-site staff training                       notifications
+  • Yearly upkeep available                       • 90 days support                           • Admin web dashboard
+                                                                                              • Store submission handled
+
+
+• Process: one-week discovery, design in Figma, two-week build sprints with a clickable build each time, store submission,
+then post-launch fixes.
+• Design for weak networks: test on mid-range Android phones over mobile data and keep key flows working offline where
+possible.
+• Scope warning: a mobile front end usually needs a backend, which can add 30-50% on top, so quote them together.
+• M-Pesa timing: the build takes days but production approval from Safaricom can take 2-10 working days. Start the
+paperwork in week 1.
+
+
+   Keep it honest
+   Mobile app and system ranges are wider than website ranges because scope varies most there. Always scope first, and do not
+   publish app prices as fixed. Publish "from" figures and a Discovery Sprint.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                7
+    07 | PATH 3: THE ACADEMY
+
+
+    From first line of code to job-ready
+    A ladder of courses so a learner can start small, stay with you, and finish in a real internship.
+
+
+
+
+  SPARK                                         FRONTEND                                          BACKEND
+
+  KSh 3,500                                     KSh 25,000                                        KSh 25,000
+  Proposed | 2 weeks, evenings                  Proposed | 6 weeks                                Proposed | 6 weeks
+  • How the web works                           • HTML5, CSS, JavaScript                          • Node, REST APIs, PostgreSQL
+  • First HTML + CSS page, published            • Responsive design, React intro                  • Authentication and testing
+  • Is coding for me?                           • Two portfolio sites                             • Deploy a live API
+
+
+
+  MOBILE (FLUTTER)                              AFRICAN STACK ADD-ON                              FULL-STACK MARATHON
+
+  KSh 35,000                                    KSh 15,000                                        KSh 85,000
+  Proposed | 8 weeks                            Proposed | 4 weeks                                Proposed | 24 weeks, M-Pesa instalments
+  • Flutter and Dart basics                     • Daraja STK Push and C2B                         • Frontend + backend + African Stack
+  • Offline data, forms, navigation             • Callbacks and reconciliation                    • Capstone on a real client brief
+  • Publish a working app                       • WhatsApp API, USSD basics                       • Certificate + internship
+
+
+
+Full-Stack Marathon: week-by-week
+ Phase                           Weeks       Content                                                           Output
+
+ 1. Foundations                  1-4         HTML, CSS, Git, command line, JavaScript basics                   Two static sites
+
+ 2. Frontend                     5-9         JavaScript deep dive, TypeScript, React, Next.js, UI basics       Portfolio + client-style site
+
+ 3. Backend                      10-15       Node, REST APIs, PostgreSQL, authentication, testing              API + admin dashboard
+
+ 4. African Stack                16-19       M-Pesa Daraja, WhatsApp, deployment, security                     Store with M-Pesa
+                                                                                                               sandbox
+
+ 5. Capstone + internship        20-24       Real client brief in a team, code review, demo day                Deployed product +
+                                                                                                               certificate
+
+
+  Why this price (Proposed)                                           Cohort economics (illustration)
+  • McTaba is around KES 100,000 - 120,000 and Moringa KES            • 15 students x KSh 85,000 = KSh 1,275,000 per Marathon
+     174,000 - 200,000, so KSh 85,000 undercuts both.                    cohort
+  • Short paid courses elsewhere run KES 25,000 - 40,000,             • Evening and Saturday classes so learners can keep working
+     which anchors the 6-week tracks.                                 • Capacity decision: how many internships you can supervise
+  • Micro courses sit at KES 2,000 - 10,000, which anchors               on live client work
+     Spark.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                             8
+    08 | TEAM MAPPING
+
+
+    Match every person to what they sell and
+    what they teach
+    Role-based because the team page could not be read automatically. Put a name against each role, and one
+    person can hold several.
+
+
+
+ Role                   Owns (services)                        Teaches             Skill tags to show on the site        Name
+
+ Founder / Lead         Platform builds, architecture, final   Full-Stack          System design, TypeScript,            ________
+ Engineer               code review, client discovery on       capstone, Backend   APIs, databases
+                        big projects                           track
+
+ Frontend / UI          Launch and Business sites,             Spark, Frontend     HTML, CSS, React, Next.js,            ________
+ Engineer               design-to-code                         track               accessibility
+
+ Backend /              Commerce stores, M-Pesa                Backend track,      Node, PostgreSQL, Daraja,             ________
+ Payments               Daraja, business systems               African Stack       WhatsApp API
+ Engineer                                                      add-on
+
+ Mobile Engineer        Mobile app MVPs, app care              Mobile (Flutter)    Flutter, Dart, offline-first, store   ________
+                                                               track               releases
+
+ Product Designer       UX, Figma, brand packs, design         Design for          Figma, UX writing, brand              ________
+                        reviews                                developers          systems
+                                                               workshop
+
+ Instructor /           Cohort planning, assessments,          Coordinates all     Curriculum, mentoring, project        ________
+ Academy Lead           internships                            tracks              coaching
+
+ Client Success /       Enquiries, quotes, onboarding,         Career talks        Client communication, SEO,            ________
+ Growth                 content and SEO                                            social, copy
+
+
+
+How to fill it in (30 minutes)
+• Step 1: each person lists their top three skills and one thing they enjoy teaching.
+• Step 2: match people to roles, leaving a role empty rather than forcing a fit. An empty role is a hiring or training plan.
+• Step 3: set each person's monthly billable hours and a rate. For early-career developers, KES 500 - 1,000 per hour is a
+common starting range, and agencies charge 2-5x that.
+• Step 4: publish skill tags and the courses each person teaches on the team page, because competitors' team pages hide
+this.
+
+
+   Rule of thumb for scheduling
+   No one should teach more than two tracks a quarter while carrying client work. If a role has only one person, plan a backup,
+   because a sick day should not cancel a cohort or a launch.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                  9
+    09 | WEBSITE UPDATE PLAN
+
+
+    Turn the site into a sales page for each path
+    Page structure, what each page must contain, and quick wins for this week.
+
+
+
+ Page                     Purpose                           Must include
+
+ Home                     Split visitors into Build and     Two clear paths, proof strip, three CTAs: WhatsApp, estimate, apply
+                          Learn
+
+ Services hub             Show the five pillars             From-prices, tier comparison, link to each service page
+
+ Service pages (x5)       Close the sale                    Who it is for, what is included, timeline, from-price, process, FAQ, CTA
+
+ Pricing                  Answer cost questions fast        Tier tables, add-ons, care plans, payment schedule, estimator that sends a
+                                                            WhatsApp message
+
+ Academy                  Fill cohorts                      Tracks, syllabus, fees, M-Pesa instalments, next cohort date, apply form
+
+ Case studies             Prove it                          3-5 projects: problem, stack, result, live link
+
+ Team                     Show real skills                  Role, skill tags, courses taught
+
+ Guides (blog)            Win search                        How much a website costs in Kenya, how to accept M-Pesa, bootcamp
+                                                            fees compared
+
+ Contact                  Remove friction                   WhatsApp first, short form, Nakuru address and hours
+
+
+
+   Check this first: can search engines read your pages?
+   When I fetched the home page and the /services and /team addresses, I only received the page title and description, not the
+   content. That means the site builds its pages in the browser. Visitors are fine, but crawlers, link previews and some tools may
+   see an empty shell. Confirm in Google Search Console, and if it is the case, move to server-rendered or pre-rendered pages
+   (for example Next.js) so services and prices are indexable.
+
+
+
+Quick wins this week
+• Add a WhatsApp button on every page with a pre-filled message per service.
+• Publish the four website tiers and the three care plans on one pricing page.
+• Replace long service lists with five pillar cards, each with a from-price.
+• Put "M-Pesa integration" and "Learn to code in Nakuru" in the home page headline area.
+• Write one guide post: "How much does a website cost in Kenya?" using your own tiers.
+• Only announce tracks that have a start date.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                       10
+    10 | 90-DAY ROADMAP
+
+
+    From playbook to live offers
+    A realistic sequence for a small team doing client work at the same time.
+
+
+
+ When                Focus             Deliverables
+
+ Days 1-7            Decide            Fill the team roster; confirm price floors; choose which tiers launch first; write one-page
+                                       descriptions for each tier
+
+ Days 8-21           Publish           Pricing page, services hub, WhatsApp CTAs, estimator v1; fix crawlability if needed
+
+ Days 22-45          Prove             Two case studies; Spark pilot cohort; academy page with apply form; first guide posts
+
+ Days 46-90          Scale             Open Full-Stack Marathon enrollment; collect testimonials; review win rate and adjust prices;
+                                       hire or train for empty roles
+
+
+
+Numbers to track weekly
+ Metric                            Why it matters                                                   First target (suggested)
+
+ Enquiries per week                Shows whether the site and pricing page attract clients          Set a baseline in week 2
+
+ Quote-to-win rate                 Tells you if prices and scope are right                          Review monthly; adjust bands if very
+                                                                                                    high or very low
+
+ Average project value             Shows if clients move up tiers                                   Rising each quarter
+
+ Cohort fill rate                  Academy demand                                                   Fill the Spark pilot before pricing the
+                                                                                                    Marathon
+
+ Care plan attach rate             Recurring revenue                                                Offer on every launch
+
+
+
+   What I still need to finish the team-specific version
+   1. Each team member's name, role and top skills.
+   2. The services and prices currently on the live site, pasted as text.
+   3. How many projects and students the team can handle at once, and whether classes are online, in person in Nakuru, or both.
+   4. Any existing case studies or testimonials.
+   With these I can replace the role slots in section 08 with names and tune capacity, prices and the academy calendar.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                            11
+    11 | SOURCES
+
+
+    Where the numbers come from
+    Public pages read in October 2026. Prices change, so re-check before publishing.
+
+
+
+ Source                                                     Link
+
+ Bonnie Computer Hub - home, services, academy,             https://www.bonniecomputerhub.co.ke/public/index
+ team
+
+ Achi Systems - website cost in Nairobi                     https://achisystems.co.ke/how-much-does-it-cost-to-build-a-website-in-nairo
+                                                            bi/
+
+ TecIT - pricing and rate card                              https://tecit.lovable.app/pricing
+
+ McTaba - pricing your first website project                https://mctaba.com/learn/freelancing/price-first-website-project
+
+ McTaba - coding bootcamps under KES 150,000                https://mctaba.com/blog/top-5-affordable-coding-bootcamps-in-kenya-under-
+                                                            kes-150-000-in-2026
+
+ McTaba - affordable coding schools in Nairobi              https://mctaba.com/learn/bootcamps/affordable-coding-schools-nairobi
+
+ McTaba - micro courses vs full bootcamp                    https://mctaba.com/learn/bootcamps/micro-courses-vs-full-bootcamp
+
+ McTaba - tech hubs outside Nairobi                         https://mctaba.com/learn/careers/tech-hubs-outside-nairobi
+
+ Moringa course overview (Scribd copy)                      https://www.scribd.com/document/1007546514/Software-Engineering-Cours
+                                                            e-Web
+
+ Hostiko - M-Pesa integration guide and services            https://hostiko.co.ke/blog/mpesa-integration-kenya-daraja-api
+
+ Kolonell - payment gateway pricing in Kenya                https://kolonell.com/en/blog/payment-gateway-pricing-kenya-2026
+
+ Mackdish Solutions - M-Pesa for online stores              https://nairobi-biz-growth.lovable.app/blog/mpesa-integration-online-stores-g
+                                                            uide
+
+ Mackdish Solutions - mobile app development                https://nairobi-biz-growth.lovable.app/services/mobile-app-development
+
+ CMARIX - Flutter app development cost 2026                 https://www.cmarix.com/blog/flutter-app-development-cost/
+
+ Nakuru County - Ajiry Digital Hub                          https://www.nakuru.go.ke/?p=17605
+
+ Nakuru County - digital freelancing training               https://www.nakuru.go.ke/?p=16599
+
+
+All prices labelled Proposed are recommendations created for this document, not published figures from any source. Several sources are
+competitors' own marketing pages, so treat their numbers as indicative.
+
+
+
+
+404HubSpot | Service Architecture & Growth Playbook | October 2026                                                                        12
+

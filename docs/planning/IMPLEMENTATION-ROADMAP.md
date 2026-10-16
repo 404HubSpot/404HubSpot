@@ -36,6 +36,16 @@ Readiness gates are distinct from code dependencies; no optional subsystem goes 
 Mobile, separate services, broker/cache, vector store and orchestration are conditional decisions,
 not promised implementation. See [scaling criteria](../architecture/SCALING-PATH.md).
 
+## Overlay: service playbook 90-day sequence (research/ playbook §10)
+
+Days 1–7 Decide: roster + price floors + launch tiers + one-page tier descriptions (spec 02, Francis).
+Days 8–21 Publish: pricing page (02→03), services hub (03), WhatsApp CTAs (08), estimator v1 (08),
+crawlability fix decision (14, Don).
+Days 22–45 Prove: 2 case studies (10→11), Spark pilot cohort (07), academy+apply page (07), first guides (22).
+Days 46–90 Scale: Marathon enrolment (07), testimonials, win-rate review, hire/train gaps (all owners).
+Weekly metrics: enquiries, quote-to-win, avg project value, cohort fill rate, care attach rate (spec 31, Depends 19/24/27/30).
+One spec per branch; dependencies merge before dependents start.
+
 ## Execution and review
 
 [Spec index](../../project-kit/feature-specs/README.md) contains precise per-feature dependencies.

@@ -92,6 +92,29 @@ valid. Lose no file, compromise neither structure.
    fetched default tip before touching any implementation file. If the
    current branch IS the default branch, stop and cut the feature branch
    first — no exceptions, no "quick fixes" straight to main.
+
+## PM hard rules (added 2026-10-16 — service playbook sync)
+
+R1. No cross-implementation. A member's AI agent must not implement any task
+   not assigned to that member in docs/planning/TEAM-ASSIGNMENTS.md §2. If
+   assigned to another member, report `BLOCKED:<spec> held by <name>` to the
+   user and stop.
+
+R2. Dependency handoff. If task A (owned by member X) depends on task B
+   (owned by member Y), and B is not merged to `main`, X must tell the user
+   `task <A> waits on <B>, held by <name>` and must NOT implement until B
+   lands in main. The user manually reaches out to <name> to unblock — no
+   agent implements blindly across owners.
+
+R3. Dependent specs share one owner. Specs that depend on each other are
+   grouped under a single owner in TEAM-ASSIGNMENTS.md §2 so cross-owner
+   deadlocks cannot form.
+
+R4. Planning-only scope. Branches such as `docs/web/35-service-playbook-sync`
+   touch `docs/`, `research/`, `project-kit/`, and `AGENTS.md` only — zero
+   `src/`, `public/`, `backend/`, `infra/`, manifest, migration, or config
+   changes. Implementation starts only on a fresh `feature/<area>/<NN>-<slug>`
+   after this planning PR is reviewed and merged and dependencies are in main.
 1. ALWAYS read `project-kit/context/progress-tracker.md` first, every run.
    Section 0 names the ONE next spec; the status board lists EVERY feature
    one by one with its state — never batch, never skip, never reorder
