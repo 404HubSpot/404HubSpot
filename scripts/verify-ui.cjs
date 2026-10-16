@@ -4,6 +4,21 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 const base = process.env.BASE_URL || "http://127.0.0.1:5173";
+const widths = [360, 768, 1024, 1440, 1920];
+const courseSlugs = [
+  "python-foundations",
+  "javascript-fullstack",
+  "typescript-express-apis",
+  "vue-frontend",
+  "html-css-foundations",
+  "gsap-motion",
+  "flutter-dart-mobile",
+  "flask-rest-apis",
+  "git-dev-tools",
+  "ml-foundations",
+  "sql-databases",
+  "scratch-beginners",
+];
 const routes = [
   "/",
   "/programming-classes",
@@ -15,7 +30,7 @@ const routes = [
   "/services/m-pesa-integration",
   "/services/graphics-design",
   "/team/don-artkins",
-  "/classes/python-foundations",
+  ...courseSlugs.map((slug) => `/classes/${slug}`),
   "/no-such-page-404-check",
 ];
 (async () => {
@@ -30,7 +45,7 @@ const routes = [
   let checks = 0;
   page.on("pageerror", (error) => errors.push(error.message));
   fs.mkdirSync("docs/design/evidence", { recursive: true });
-  for (const width of [360, 768, 1024, 1440, 1920]) {
+  for (const width of widths) {
     await page.setViewportSize({ width, height: 1000 });
     for (const route of routes) {
       await page.goto(base + route);
@@ -57,6 +72,43 @@ const routes = [
       path: `docs/design/evidence/landing-${width}.png`,
       fullPage: true,
     });
+    checks++;
+  }
+  const approvedPrices = [
+    ["/services/web-development", ["KES 20,000 – 35,000", "KES 40,000 – 75,000", "From KES 85,000"]],
+    ["/services/software-development", ["KES 280,000 – 650,000", "From KES 650,000"]],
+    ["/services/mobile-apps", ["KES 400,000 – 700,000", "KES 750,000 – 1,500,000", "From KES 1,500,000"]],
+    ["/services/m-pesa-integration", ["KES 25,000 – 40,000", "From KES 100,000"]],
+    ["/services/graphics-design", ["KES 25,000 – 55,000", "KES 85,000 – 200,000", "From KES 35,000"]],
+  ];
+  for (const [route, prices] of approvedPrices) {
+    await page.goto(base + route);
+    assert.deepEqual(
+      await page.locator(".price-amount").allTextContents(),
+      prices,
+      `${route} must show only owner-approved prices`,
+    );
+    checks++;
+  }
+  await page.goto(base + "/programming-classes");
+  const courseCards = page.locator(".courses-grid .service-card");
+  assert.equal(await courseCards.count(), courseSlugs.length);
+  for (const card of await courseCards.all()) {
+    const text = await card.innerText();
+    assert.match(text, /Ask us for current fees\./);
+    assert.doesNotMatch(text, /KES\s[\d,]+/);
+  }
+  checks++;
+  for (const slug of courseSlugs) {
+    await page.goto(`${base}/classes/${slug}`);
+    const text = await page.locator("main").innerText();
+    assert.match(text, /Ask us for current fees and availability\./);
+    assert.doesNotMatch(text, /KES\s[\d,]+/);
+    assert.doesNotMatch(text, /Fees provisional/i);
+    assert.doesNotMatch(
+      await page.locator('meta[name="description"]').getAttribute("content"),
+      /KES\s[\d,]+|Fee\sKES/i,
+    );
     checks++;
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
@@ -214,7 +266,7 @@ const routes = [
   const result = {
     checkedAt: new Date().toISOString(),
     checks,
-    routeViewportChecks: 60,
+    routeViewportChecks: widths.length * routes.length,
     runtimeErrors: errors,
     browser: await browser.version(),
     playwright: require(

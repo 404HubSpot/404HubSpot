@@ -1,7 +1,7 @@
 # 02 — Content, brand and asset truth
 
-Status: PLANNED; not implemented in feature 01. Owner: content.
-Branch: `feature/content/02-content-and-brand-audit` — create from freshly fetched `origin/main` only after dependencies merge.
+Status: IN PROGRESS. Owner: Francis Masila (content truth decision gate).
+Branch: `feature/content/02-content-and-brand-truth`, created from freshly fetched `origin/main` after dependencies merged.
 One root spec, one feature branch, one PR; affected layers share this vertical outcome.
 
 ## Problem and outcome
@@ -17,7 +17,7 @@ Confirm current provider/library versions from official sources at implementatio
 
 ## Owned files and layer boundaries
 
-Proposed files: src/data/site.js; public/assets/; docs/content/CONTENT-REGISTER.md; docs/content/ASSET-REGISTER.md.
+Files: src/data/site.js; src/data/courses.js; src/views/ProgrammingClasses.vue; src/views/CourseDetail.vue; src/lib/seo.js; docs/content/CONTENT-REGISTER.md; docs/content/ASSET-REGISTER.md; docs/planning/OPEN-QUESTIONS.md.
 Create only files needed by this outcome. Preserve existing source layout and public URLs.
 Owner/consumer documents update together; do not introduce unrelated layer scaffolding.
 
@@ -26,6 +26,7 @@ Owner/consumer documents update together; do not introduce unrelated layer scaff
 1. Inventory all nine page bodies, prices, biographies, phone numbers, email, social links and meeting/form destinations against original source files.
 2. Resolve the LanguageCard phone mismatch through owner confirmation; record missing portraits without inventing faces or credentials.
 3. Assign each claim/asset an owner, evidence, publication permission and status; distinguish proposal copy from approved facts.
+4. Preserve unconfirmed claims as explicit gates; do not publish course fees or treat a provisional canonical domain as approved.
 
 ## Data, contracts and permissions
 
@@ -39,6 +40,9 @@ No secrets or production user data in fixtures. All privileged actions authorize
 - [ ] All six services and four course categories have approved summaries and details.
 - [ ] Every portfolio/portrait asset has attribution and permission status.
 - [ ] No fabricated testimonials, client names, awards or performance metrics appear.
+- [x] Owner-confirmed public identity, contact details, social profiles and service prices are recorded in the content register.
+- [x] Course prices are withheld across listing, detail and SEO output until confirmed per course.
+- [ ] Canonical domain and publication permission for portraits/media remain explicit open gates.
 
 ## Verification and evidence
 
@@ -46,6 +50,8 @@ Link/asset scan; compare contact destinations across all views; manual owner rev
 Before implementation, register exact executable commands for newly introduced tooling in the
 stack contract and this spec. Run existing `npm run build` and `git diff --check` where frontend
 changes apply. Record revision, environment, pass/fail/skip counts and unavailable operator gates.
+Docs consulted 2026-10-16: Vue 3.5.27 installed (`npm ls vue vite --depth=0`); official conditional rendering guide, https://vuejs.org/guide/essentials/conditional.html. Vite 7.3.1 installed; official build guide, https://vite.dev/guide/build.html. No new framework APIs or dependencies introduced.
+2026-10-16 results: `npm run build` PASS (69 modules; warnings: stale caniuse-lite, lottie-web eval notice, static/dynamic imports); direct Node assertions PASS for contact, 13 approved service price entries, and all 12 course fees withheld; `git diff --check` PASS. `scripts/verify-ui.cjs` now contains the route/price/fee UI assertions, but it was not run because Playwright is unavailable/configuration variables are unset. Browser screenshots, live contact/social checks, and asset permission verification are not claimed.
 For visible UI, capture relevant mobile/desktop states including failures; for APIs/tools, include
 negative access and failure tests. Do not claim unrun integration or provider checks as passed.
 
