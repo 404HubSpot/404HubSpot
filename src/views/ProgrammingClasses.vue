@@ -43,7 +43,7 @@
                 ><span class="card-index">/ {{ String(c.id).padStart(2, "0") }}</span>
               </div>
               <h3>{{ c.name }} <UiIcon name="diagonal" /></h3>
-              <p>{{ c.tagline }} — {{ c.level }} · {{ c.fee }}</p>
+              <p>{{ c.tagline }} — {{ c.level }} · Ask us for current fees.</p>
               <div class="service-card-bottom">
                 <div class="tag-list">
                   <span v-for="t in c.track" :key="t">{{ t }}</span>

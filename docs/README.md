@@ -8,6 +8,7 @@
 ## Design and implementation
 
 - [Design system](design/MASTER-DESIGN-SYSTEM.md), [editable design board](design/landing-design.html)
+- [Content register](content/CONTENT-REGISTER.md), [asset register](content/ASSET-REGISTER.md)
 - [Inspiration catalogue](../inspo/CATALOG.md), [tokens](../project-kit/context/ui-tokens.md),
   [UI rules](../project-kit/context/ui-rules.md), [component registry](../project-kit/context/ui-registry.md)
 - [Browser captures and results](design/evidence/README.md)

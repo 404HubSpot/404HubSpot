@@ -46,7 +46,7 @@ export function applySeo(route, team = [], courses = []) {
     const c = courses.find((t) => t.slug === route.params.slug);
     if (c) {
       title = `${c.name} — ${c.level} | 404HubSpot Courses`;
-      description = `${c.name}: ${c.tagline} ${c.duration}. Fee ${c.fee}.`;
+      description = `${c.name}: ${c.tagline} ${c.duration}. Ask us for current fees and availability.`;
     } else {
       title = "Course | 404HubSpot";
       noindex = true;

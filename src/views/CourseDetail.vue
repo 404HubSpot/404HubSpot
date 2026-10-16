@@ -10,7 +10,7 @@
           <p style="color: var(--site-muted); margin-top: 14px; font-size: 14px; line-height: 1.8; max-width: 640px">{{ course.description }}</p>
           <div class="tag-list" style="margin-top: 16px">
             <span v-for="t in course.track" :key="t">{{ t }}</span>
-            <span>{{ course.fee }}</span>
+            <span v-if="course.fee">{{ course.fee }}</span>
           </div>
           <div class="hero-actions">
             <a :href="whatsappUrl(`Hello 404HubSpot, ${course.cta}.`)" target="_blank" rel="noopener noreferrer" class="action action-dark" data-magnetic>Join on WhatsApp <UiIcon name="diagonal" /></a>
@@ -47,9 +47,9 @@
             </router-link>
             <div class="panel-card" style="margin-top:18px" data-reveal>
               <span class="eyebrow">FACTS</span>
-              <p style="font-size:13px;margin-top:10px"><b>Fee:</b> {{ course.fee }}</p>
+              <p v-if="course.fee" style="font-size:13px;margin-top:10px"><b>Fee:</b> {{ course.fee }}</p>
               <p style="font-size:13px;margin-top:6px"><b>Format:</b> {{ course.duration }}</p>
-              <p style="font-size:12px;color:var(--site-muted);margin-top:8px">Fees provisional — confirm on WhatsApp.</p>
+              <p style="font-size:12px;color:var(--site-muted);margin-top:8px">Ask us for current fees and availability.</p>
             </div>
           </div>
         </div>
