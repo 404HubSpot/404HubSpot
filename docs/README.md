@@ -26,3 +26,5 @@
 Implemented: feature 01 landing/shared shell and project documentation.
 Planned: other public pages, portfolio, backend/database/admin, content publishing, AI, MCP,
 CI/deployment/operations. Deferred: native mobile, independent microservices and unused infrastructure.
+Planning staged: service-playbook sync (spec 35, report + team assignments + contract sync) on
+`docs/web/35-service-playbook-sync` — PR review open, no implementation until merged.

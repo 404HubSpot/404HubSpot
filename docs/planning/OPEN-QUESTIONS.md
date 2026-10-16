@@ -14,3 +14,7 @@ Feature 01 can complete without these. Future specs remain planned/blocked where
 | AI use-case priority, provider/model budget and approved data handling? | 26–28 |
 | Inquiry retention, export/delete workflow, privacy notice and consent text? | 19 live, 29 |
 | Any real need for customer accounts, native mobile, online payments or independently scaled services? | Optional research only; none assumed |
+| Price floors + which tiers launch first + tier-1-page descriptions (playbook §10 Decide)? | 02 (Decide gate) |
+| Academy cohort capacity/mode (online vs Nakuru)/internships + economics validation (playbook §07)? | 07 |
+| Crawlability: Search Console confirm + Vue SSR/prerender decision (playbook §09 warning, keep Vue)? | 14 |
+| Weekly-metrics owner + tooling (playbook §10: enquiries, quote-to-win, avg value, cohort fill, care attach)? | 31 |

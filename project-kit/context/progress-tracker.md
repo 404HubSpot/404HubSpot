@@ -2,7 +2,8 @@
 
 ## 0. Execution chain
 
-Current: 01 merged to `main` (`cb5d263`); 02b unified revamp IN PROGRESS on `feature/web/02-unified-site-revamp` (owner-approved bundle of 02–09,12,33 + Clerk/GSAP/Lottie/font/pricing).
+Current: 01 merged to `main` (`cb5d263`); 02b unified revamp IN REVIEW on `feature/web/02-unified-site-revamp` (owner-approved bundle of 02–09,12,33 + Clerk/GSAP/Lottie/font/pricing).
+Planning branch `docs/web/35-service-playbook-sync` from `origin/main` `57da375` records the service-playbook sync (report + assignments + contract sync; NO CODE). Awaits PR review before any implementation branch starts.
 Next eligible after user review/merge: 02 content truth confirmation (prices/team/keys), then remaining staged specs one-by-one.
 One spec/branch/PR normally; 02b is a documented single exception — do not batch further without approval.
 
@@ -45,6 +46,7 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 32 | Scaling and extraction decision review | PLANNED | Depends 15,30,31 | May conclude no new runtime needed |
 | 33 | Graphics design service redesign | PLANNED | Depends 02,03 | — |
 | 34 | Customer accounts & password auth (Clerk) | PLANNED | Depends 17,18,20 | App linked at build; secret-key gate OPEN |
+| 35 | Service playbook sync & planning (accomplishment report, team assignments, contract sync) | PLANNING | None (planning-only) | PR review OPEN; no implementation until merged |
 
 Rule: implement strictly in dependency order, one spec per branch. 02b is the single documented exception.
 
@@ -104,6 +106,8 @@ Updated public-navigation contract, canonical UI tokens/rules/registry, owner an
 feature spec and README. Source paths/services/contact destinations synchronized via src/data/site.js.
 Route shapes unchanged; new scroll behavior documented. Existing detail styles remain scoped apart.
 Future platform contracts are explicitly drafts, not implemented APIs. Layer kits route status here.
+2026-10-16: service-playbook sync branch `docs/web/35-service-playbook-sync` recorded — report,
+team assignments, planning spec 35, tracker row, AGENTS hard rules R1–R4; NO CODE changed.
 No baseline .baseline/Husky/CI workflow tree injected; baseline tooling remains in its source repo.
 No Figma file created: editable local HTML board and actual screenshots provide review artifacts.
 Official documentation fallback used because no Context7 MCP tool was available; sources are in spec.
@@ -111,6 +115,7 @@ Official documentation fallback used because no Context7 MCP tool was available;
 ## 5. Open limits and next action
 
 02b review/merge: OPEN. Owner must confirm: Glory Kinya photo/bio/links; Frank “Fullstack Developer & Designer” and Don “AI Engineer & System Architect” titles; provisional KES bands; Brevo sender/key/inbox + Meet ID. Clerk publishable key LIVE (verified rendering 2026-09-30); `CLERK_SECRET_KEY` + `clerk auth login`/`clerk link` remain for backend (spec 19). Production deployment not run.
+Planning PR `docs/web/35-service-playbook-sync`: report + assignments + contract sync staged; PR review OPEN — no implementation branch may start until this planning PR is reviewed/merged.
 Existing Contact form/meeting placeholders remain (demo until IDs set); LanguageCard phone mismatch FIXED in 02b via shared whatsappUrl.
 External social destinations not live-verified; manual screen-reader/Firefox/WebKit checks not run.
 No backend, database, MCP, AI, retention, security or deployment tests are claimed as passing.
