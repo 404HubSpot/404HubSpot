@@ -1745,6 +1745,20 @@
 .lottie-caption { font: 8px var(--site-mono); letter-spacing: 1px; color: var(--site-muted); text-align: center; }
 .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 .panel-card { background: var(--site-surface); border: 1px solid var(--site-border); border-radius: var(--site-radius); padding: 30px; box-shadow: var(--site-shadow); }
+/* Task 03: web development redesign. Keep these hooks page-specific. */
+.web-dev-delivery-grid { align-items: stretch; }
+.web-dev-delivery-card { min-width: 0; }
+.web-dev-scope-list { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+.web-dev-scope-list li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; color: var(--site-muted); font-size: 13px; line-height: 1.65; }
+.web-dev-scope-list svg { width: 18px; height: 18px; color: var(--site-brand); }
+.web-dev-faq-list { max-width: 860px; margin-inline: auto; display: grid; gap: 10px; }
+.web-dev-faq-list details { background: var(--site-surface); border: 1px solid var(--site-border); border-radius: 12px; }
+.web-dev-faq-list summary { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; list-style: none; padding: 16px 20px; font-weight: 600; }
+.web-dev-faq-list summary::-webkit-details-marker { display: none; }
+.web-dev-faq-list summary svg { width: 18px; height: 18px; flex: 0 0 auto; transition: transform 180ms ease; }
+.web-dev-faq-list details[open] summary svg { transform: rotate(45deg); }
+.web-dev-faq-list p { color: var(--site-muted); font-size: 13px; line-height: 1.75; margin: 0; padding: 0 20px 18px; }
+.web-dev-hub .section-heading { border-bottom: 1px solid var(--site-border); padding-bottom: 28px; }
 .pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .pricing-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 900px; margin-inline: auto; }
 .price-card { background: var(--site-surface); border: 1px solid var(--site-border); border-radius: var(--site-radius); padding: 30px; box-shadow: var(--site-shadow); display: flex; flex-direction: column; }

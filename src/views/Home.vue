@@ -73,21 +73,21 @@
       </div>
       <section
         id="services"
-        class="services-section section-space site-container"
+        class="services-section section-space site-container web-dev-hub"
         data-reveal
       >
         <div class="section-heading">
           <div>
-            <span class="eyebrow">01 / WHAT WE DO</span>
+            <span class="eyebrow">01 / SERVICES HUB</span>
             <h2>
-              Everything you need.<br /><span class="muted-heading"
-                >One creative tech partner.</span
+              Find the right build.<br /><span class="muted-heading"
+                >Explore every service.</span
               >
             </h2>
           </div>
           <p>
-            From your first website to your next big platform.<br />We bring the
-            right skills to move you forward.
+            Choose a web, software, mobile, payments or design service to see
+            the scope, starting bands and next step.
           </p>
         </div>
         <div class="services-grid">

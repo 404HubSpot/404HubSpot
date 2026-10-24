@@ -90,6 +90,28 @@ const routes = [
     );
     checks++;
   }
+  await page.goto(base);
+  const webDevHubLink = page
+    .locator("#services")
+    .getByRole("link", { name: "Web Development", exact: true });
+  assert.equal(await webDevHubLink.count(), 1);
+  assert.equal(await webDevHubLink.getAttribute("href"), "/services/web-development");
+  checks += 2;
+  await page.goto(base + "/services/web-development");
+  assert.equal(await page.locator(".web-dev-scope-list").count(), 2);
+  assert.equal(await page.locator(".web-dev-scope-list li").count(), 8);
+  assert.equal(
+    await page.locator(".web-dev-services .service-card").count(),
+    6,
+  );
+  const firstFaq = page.locator(".web-dev-faq-list details").first();
+  await firstFaq.locator("summary").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(800);
+  await firstFaq.locator("summary").focus();
+  await page.keyboard.press("Enter");
+  assert.equal(await firstFaq.evaluate((details) => details.open), true);
+  assert.equal(await page.locator(".web-dev-faq-list details").count(), 4);
+  checks += 5;
   await page.goto(base + "/programming-classes");
   const courseCards = page.locator(".courses-grid .service-card");
   assert.equal(await courseCards.count(), courseSlugs.length);

@@ -3,9 +3,9 @@
     <GlobalNav />
     <main id="main-content" tabindex="-1">
       <PageHero
-        kicker="WEB DEVELOPMENT — NAIROBI TO THE WORLD"
-        title="Websites that turn <em>visitors</em> into customers."
-        lede="High-performance sites and web apps — designed, built and supported by your dedicated team."
+        kicker="WEB DEVELOPMENT — BUILT AROUND YOUR GOALS"
+        title="A better website should bring <em>real movement.</em>"
+        lede="Launch a clear, fast, conversion-ready web experience built around your customers, operations and next stage of growth."
       >
         <template #actions>
           <a :href="whatsappUrl(`Hello 404HubSpot, I need a website. My budget is ___.`)" target="_blank" rel="noopener noreferrer" class="action action-dark">Start on WhatsApp <UiIcon name="diagonal" /></a>
@@ -26,10 +26,10 @@
         </template>
       </PageHero>
 
-      <section class="section-space site-container" data-reveal>
+      <section class="section-space site-container web-dev-process" data-reveal>
         <div class="section-heading">
-          <div><span class="eyebrow">01 / HOW WE BUILD</span><h2>Discovery to launch.<br /><span class="muted-heading">No surprises.</span></h2></div>
-          <p>Same executive rhythm as home — five clear steps, weekly demos, clean handover.</p>
+          <div><span class="eyebrow">01 / HOW WE BUILD</span><h2>From a sharp brief<br /><span class="muted-heading">to a confident launch.</span></h2></div>
+          <p>A practical five-stage process keeps decisions visible, feedback focused and the finish line clear.</p>
         </div>
         <div class="process-timeline">
           <div v-for="(s, i) in steps" :key="s.title" class="process-row" data-reveal>
@@ -39,10 +39,31 @@
         </div>
       </section>
 
-      <section class="section-space site-container" data-reveal>
+      <section class="section-space site-container web-dev-scope" data-reveal>
         <div class="section-heading">
-          <div><span class="eyebrow">02 / KENYA-REALISTIC PRICING</span><h2>Fair prices.<br /><span class="muted-heading">No undercharging.</span></h2></div>
-          <p>Owner-review bands (2026-09-30). Final quote confirms scope on WhatsApp — 50% to start, 50% on delivery.</p>
+          <div><span class="eyebrow">02 / WHAT YOU RECEIVE</span><h2>Clear scope.<br /><span class="muted-heading">Useful deliverables.</span></h2></div>
+          <p>Every engagement starts with the same essentials: what the project must achieve, who owns each decision and what “done” includes.</p>
+        </div>
+        <div class="detail-grid web-dev-delivery-grid">
+          <article class="panel-card web-dev-delivery-card">
+            <h3>Included deliverables</h3>
+            <ul class="web-dev-scope-list">
+              <li v-for="item in scope.included" :key="item"><UiIcon name="check" /> {{ item }}</li>
+            </ul>
+          </article>
+          <article class="panel-card web-dev-delivery-card">
+            <h3>Confirmations and boundaries</h3>
+            <ul class="web-dev-scope-list">
+              <li v-for="item in scope.exclusions" :key="item"><UiIcon name="arrow" /> {{ item }}</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-space site-container web-dev-pricing" data-reveal>
+        <div class="section-heading">
+          <div><span class="eyebrow">03 / STARTING BANDS</span><h2>Plan with clarity.<br /><span class="muted-heading">Build to your scope.</span></h2></div>
+          <p>Starting prices are confirmed for planning. Final scope and quote are confirmed on WhatsApp before work begins.</p>
         </div>
         <div class="pricing-grid">
           <article v-for="p in pricing.web" :key="p.name" class="price-card" :class="{ featured: p.featured }" data-reveal>
@@ -56,8 +77,20 @@
         </div>
       </section>
 
+      <section class="section-space site-container web-dev-faq" data-reveal>
+        <div class="section-heading">
+          <div><span class="eyebrow">04 / FAQ</span><h2>Useful answers before<br /><span class="muted-heading">the first call.</span></h2></div>
+          <p>Open any answer for the practical next step.</p>
+        </div>
+        <div class="web-dev-faq-list">
+          <details v-for="item in faqs" :key="item.question">
+            <summary>{{ item.question }}<UiIcon name="plus" /></summary>
+            <p>{{ item.answer }}</p>
+          </details>
+        </div>
+      </section>
 
-      <section class="section-space site-container" data-reveal>
+      <section class="section-space site-container web-dev-services" data-reveal>
         <div class="section-heading">
           <div><span class="eyebrow">EVERYTHING ELSE WE DO</span><h2>All services.<br /><span class="muted-heading">One partner.</span></h2></div>
           <p>Every offering, one team — hop to any detail page.</p>
@@ -67,7 +100,7 @@
         </div>
       </section>
 
-      <section class="closing-section site-container" data-reveal>
+      <section class="closing-section site-container web-dev-closing" data-reveal>
         <div class="closing-card">
           <span class="eyebrow">READY WHEN YOU ARE</span>
           <h2>Let's scope your site <span>this week.</span></h2>
@@ -104,11 +137,31 @@ export default {
     return {
       root, pricing, services, orbit,
       steps: [
-        { title: "Discovery & Planning", body: "Goals, audience, pages and tech — scoped into milestones and a fixed quote." },
-        { title: "Design & Prototyping", body: "Wireframes to polished mockups in your brand. You approve before code." },
-        { title: "Development", body: "Modern Vue/fast stacks, clean code, M-Pesa-ready checkout where needed." },
-        { title: "Testing & QA", body: "360–1920px checks, devices, browsers, speed and SEO basics." },
-        { title: "Launch & Support", body: "Deploy, training and 30-day fixes. Care plans after." },
+        { title: "Discovery & Planning", body: "Goals, audience, pages and technology are scoped into milestones and a written quote." },
+        { title: "Design & Prototyping", body: "Wireframes move to polished layouts in your approved brand. You approve the direction before code." },
+        { title: "Development", body: "Responsive Vue builds use clean components and integrations scoped for the project." },
+        { title: "Testing & QA", body: "Desktop and mobile checks cover routes, links, forms, accessibility basics and performance." },
+        { title: "Launch & Support", body: "You receive launch, hosting and handover responsibilities in writing, plus the agreed support window." },
+      ],
+      scope: {
+        included: [
+          "Responsive page or application build",
+          "Approved content and visual implementation",
+          "Project-specific integrations and contact actions",
+          "Technical QA and launch handover",
+        ],
+        exclusions: [
+          "Hosting, domain and third-party plan costs",
+          "New copy or media not provided in the approved scope",
+          "Payment, CRM or API access outside the agreed integration",
+          "Ongoing hosting administration or updates after handover",
+        ],
+      },
+      faqs: [
+        { question: "What do you need from me before work starts?", answer: "We confirm goals, target users, must-have features, existing brand assets, content ownership and the people who approve decisions." },
+        { question: "Can I see the design before development?", answer: "Yes. The design stage establishes and records direction for approval before the build starts." },
+        { question: "What is included in a final quote?", answer: "The quote records scope, deliverables, timelines, responsibilities, integrations and the stated starting price or agreed project total." },
+        { question: "Who owns the site after launch?", answer: "Ownership and handover responsibilities are confirmed with you before launch, including source access and third-party accounts." },
       ],
     };
   },
