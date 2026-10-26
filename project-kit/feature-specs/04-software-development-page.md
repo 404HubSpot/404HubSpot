@@ -51,7 +51,8 @@ changes apply. Record revision, environment, pass/fail/skip counts and unavailab
 For visible UI, capture relevant mobile/desktop states including failures; for APIs/tools, include
 negative access and failure tests. Do not claim unrun integration or provider checks as passed.
 
-Implementation verification (2026-10-26; Windows, Node 20.20.2, Vue 3.5.27, Vite 7.3.1):
+Implementation verification for commit `51ccaf3` (2026-10-26; Windows, Node 20.20.2,
+Vue 3.5.27, Vite 7.3.1):
 
 - `npm run build`: PASS; 71 modules, 0 errors. Warnings: stale caniuse-lite data, Lottie `eval`,
   and existing static/dynamic import chunk notices for site/course data.

@@ -14,7 +14,7 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 02b | Unified site revamp (owner-approved bundle exception) | MERGED | PR #5; merged to main | Remaining production/provider gates tracked below |
 | 02 | Content, brand and asset truth | MERGED | PR #7; merged to main | Domain, course fees, portrait/media permission and provenance gates remain tracked |
 | 03 | Web development service redesign | MERGED | PR #8; merged to main | Done |
-| 04 | Software development service redesign | IN PROGRESS | `feature/frontend/04-software-development-page`; build PASS (71 modules); integrated browser PASS (34 assertions, five viewports); screenshots saved; `git diff --check` PASS | Review and merge; project browser script unavailable because Playwright is not installed locally |
+| 04 | Software development service redesign | IN PROGRESS | Commit `51ccaf3` on `feature/frontend/04-software-development-page`; build PASS (71 modules); integrated browser PASS (34 assertions, five viewports); screenshots saved; `git diff --check` PASS | Review and merge; project browser script unavailable because Playwright is not installed locally |
 | 05 | Mobile app development service redesign | PLANNED | Depends 02,03 | — |
 | 06 | M-Pesa integration service redesign | PLANNED | Depends 02,03 | — |
 | 07 | Programming classes and learning paths | PLANNED | Depends 01,02 | Class format/fee gate OPEN |
