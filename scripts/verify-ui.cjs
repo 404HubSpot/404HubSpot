@@ -112,6 +112,61 @@ const routes = [
   assert.equal(await firstFaq.evaluate((details) => details.open), true);
   assert.equal(await page.locator(".web-dev-faq-list details").count(), 4);
   checks += 5;
+  await page.goto(base + "/services/software-development");
+  assert.match(
+    (await page.locator("h1").innerText()).replace(/\s+/g, " "),
+    /Software that fits how your business works\./,
+  );
+  assert.equal(await page.locator(".software-capability-card").count(), 3);
+  assert.equal(await page.locator(".software-process .process-row").count(), 5);
+  assert.equal(await page.locator(".software-example-card").count(), 3);
+  assert.match(
+    await page.locator(".software-example-note").innerText(),
+    /illustrative scenarios only.*not client case studies/i,
+  );
+  assert.equal(await page.locator(".software-price-card").count(), 2);
+  assert.doesNotMatch(
+    await page.locator("main").innerText(),
+    /3 months support|dedicated PM/i,
+  );
+  const softwareWhatsApp = new URL(
+    await page.locator(".software-closing a[target='_blank']").getAttribute("href"),
+  );
+  assert.match(softwareWhatsApp.searchParams.get("text"), /software development project/i);
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForFunction(
+    () => getComputedStyle(document.querySelector(".software-closing")).visibility === "visible",
+  );
+  const softwareQuoteLink = page
+    .locator(".software-closing")
+    .getByRole("link", { name: /Request a scoped quote/ });
+  assert.equal(await softwareQuoteLink.getAttribute("href"), "/contact?service=software-development");
+  await softwareQuoteLink.click();
+  await page.waitForURL("**/contact?service=software-development");
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.waitForFunction(
+    () => getComputedStyle(document.querySelector("#service").closest("section")).visibility === "visible",
+  );
+  assert.equal(await page.locator("#service").inputValue(), "Software Development");
+  checks += 10;
+  for (const width of [360, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto(base + "/services/software-development");
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForFunction(
+      () =>
+        [...document.querySelectorAll("main [data-reveal]")].every(
+          (element) => getComputedStyle(element).visibility === "visible",
+        ),
+    );
+    await page.waitForTimeout(800);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.screenshot({
+      path: `docs/design/evidence/software-development-${width}.png`,
+      fullPage: true,
+    });
+    checks++;
+  }
   await page.goto(base + "/programming-classes");
   const courseCards = page.locator(".courses-grid .service-card");
   assert.equal(await courseCards.count(), courseSlugs.length);

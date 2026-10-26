@@ -1,7 +1,7 @@
 # 03 — Web development service redesign
 
-Status: PLANNED; not implemented in feature 01. Owner: frontend.
-Branch: `feature/frontend/03-web-development-page` — create from freshly fetched `origin/main` only after dependencies merge.
+Status: MERGED (PR #8). Owner: Christine Jemutai (frontend).
+Branch: `feature/frontend/03-web-development-page`, merged to organization `main`.
 One root spec, one feature branch, one PR; affected layers share this vertical outcome.
 
 ## Problem and outcome
