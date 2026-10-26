@@ -2,8 +2,8 @@
 
 ## 0. Execution chain
 
-Current: 01, 02b, and 35 are merged to `main` (02b PR #5; 35 PR #6). Spec 02 content truth is in progress on `feature/content/02-content-and-brand-truth`.
-Next after spec 02 review/merge: follow dependency order one feature at a time. Spec 14 owns the canonical-domain decision; spec 07 owns per-course fee decisions.
+Current: 01, 02b, 35, 02 (PR #7), and 03 (PR #8) are merged to `main`. Spec 04 is in progress on `feature/frontend/04-software-development-page`.
+Next after spec 04 review/merge: follow dependency order one feature at a time. Spec 14 owns the canonical-domain decision; spec 07 owns per-course fee decisions.
 One spec/branch/PR normally; 02b is a documented single exception — do not batch further without approval.
 
 ## 1. Status board — every feature, one by one, no batching
@@ -12,9 +12,9 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 |---|---|---|---|---|
 | 01 | Landing/shared shell redesign + workflow/architecture planning | MERGED | main `cb5d263`; 57 checks green at merge | Done |
 | 02b | Unified site revamp (owner-approved bundle exception) | MERGED | PR #5; merged to main | Remaining production/provider gates tracked below |
-| 02 | Content, brand and asset truth | IN PROGRESS | `feature/content/02-content-and-brand-truth`; `npm run build` PASS; data assertions PASS; `git diff --check` PASS | Browser verification not run; domain, course fees, portrait/media permission and provenance gates OPEN |
-| 03 | Web development service redesign | PLANNED | Depends 01,02 | — |
-| 04 | Software development service redesign | PLANNED | Depends 02,03 | — |
+| 02 | Content, brand and asset truth | MERGED | PR #7; merged to main | Domain, course fees, portrait/media permission and provenance gates remain tracked |
+| 03 | Web development service redesign | MERGED | PR #8; merged to main | Done |
+| 04 | Software development service redesign | IN PROGRESS | `feature/frontend/04-software-development-page`; build PASS (71 modules); integrated browser PASS (34 assertions, five viewports); screenshots saved; `git diff --check` PASS | Review and merge; project browser script unavailable because Playwright is not installed locally |
 | 05 | Mobile app development service redesign | PLANNED | Depends 02,03 | — |
 | 06 | M-Pesa integration service redesign | PLANNED | Depends 02,03 | — |
 | 07 | Programming classes and learning paths | PLANNED | Depends 01,02 | Class format/fee gate OPEN |

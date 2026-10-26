@@ -49,6 +49,8 @@ One spec per branch; dependencies merge before dependents start.
 ## Execution and review
 
 [Spec index](../../project-kit/feature-specs/README.md) contains precise per-feature dependencies.
-[Tracker](../../project-kit/context/progress-tracker.md) owns current state. After feature 01
-review/merge, recommended next feature is 02; 16 may be prioritized by the user for reliable CI.
+[Tracker](../../project-kit/context/progress-tracker.md) owns current state. The initial
+recommendation after feature 01 was spec 02; specs 02 and 03 are now merged, and spec 04 is in
+progress. Spec 16 remains independently eligible after spec 01; owners should follow the current
+tracker and assignment table rather than this historical recommendation.
 No dependent implementation starts from an unmerged feature branch.

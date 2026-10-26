@@ -81,6 +81,11 @@ export default {
     useMagnetic(root);
     return { root };
   },
+  created() {
+    if (this.$route.query.service === 'software-development') {
+      this.form.service = 'Software Development'
+    }
+  },
   data() {
     return {
       whatsappNumber: '254708345963', // Replace with your actual WhatsApp number

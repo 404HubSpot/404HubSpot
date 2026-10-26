@@ -4,6 +4,8 @@ Date: 2026-10-16 · Branch: `docs/web/35-service-playbook-sync`.
 PM rule: one spec, one branch, one review. Dependent specs grouped under ONE
 owner so no deadlock can form. Source: playbook §08 team mapping +
 `src/data/site.js` verified members + root tracker spec IDs.
+Execution status refreshed against organization `main` on 2026-10-26: Specs 02 (PR #7)
+and 03 (PR #8) are merged. The root progress tracker remains the status authority.
 
 ## 1. Team members (verified from src/data/site.js, 5 owners)
 
@@ -19,22 +21,22 @@ owner so no deadlock can form. Source: playbook §08 team mapping +
 
 | Spec | Feature | Owner | Depends on (holder) | Blocking protocol |
 |---|---|---|---|---|
-| 02 | Content, brand and asset truth | Francis (Decide gate) | 01 merged ✓ | BLOCKED:02 held by Francis until Decide done |
-| 03 | Web development service redesign (+hub) | Christine | 01,02 | BLOCKED:03 held by Christine until 02 merged |
-| 04 | Software development service redesign | Francis | 02,03 | BLOCKED:04 held by Francis until 03 merged |
-| 05 | Mobile app development service redesign | Don | 02,03 | BLOCKED:05 held by Don until 03 merged |
-| 06 | M-Pesa integration service redesign | Francis | 02,03 | BLOCKED:06 held by Francis until 03 merged |
-| 07 | Programming classes + academy ladder | Glory | 01,02 | BLOCKED:07 held by Glory until 02 merged |
-| 08 | Contact + estimator + Nakuru info | Don | 01,02 | BLOCKED:08 held by Don until 02 merged |
-| 09 | Delivery process page | Christine | 01,02 | BLOCKED:09 held by Christine until 02 merged |
-| 10 | Portfolio discovery | Eric | 01,02 | BLOCKED:10 held by Eric until 02 merged |
+| 02 | Content, brand and asset truth | Francis (Decide gate) | 01 merged ✓ | MERGED — PR #7 |
+| 03 | Web development service redesign (+hub) | Christine | 01,02 merged ✓ | MERGED — PR #8 |
+| 04 | Software development service redesign | Francis | 02,03 merged ✓ | IN PROGRESS — feature branch |
+| 05 | Mobile app development service redesign | Don | 02,03 merged ✓ | READY — dependencies merged |
+| 06 | M-Pesa integration service redesign | Francis | 02,03 merged ✓ | READY — dependencies merged |
+| 07 | Programming classes + academy ladder | Glory | 01,02 merged ✓ | READY — dependencies merged |
+| 08 | Contact + estimator + Nakuru info | Don | 01,02 merged ✓ | READY — dependencies merged |
+| 09 | Delivery process page | Christine | 01,02 merged ✓ | READY — dependencies merged |
+| 10 | Portfolio discovery | Eric | 01,02 merged ✓ | READY — dependencies merged |
 | 11 | Case-study detail | Eric | 10 | BLOCKED:11 held by Eric until 10 merged |
-| 12 | Company story + team profiles (+skill tags) | Eric | 01,02 | BLOCKED:12 held by Eric until 02 merged |
+| 12 | Company story + team profiles (+skill tags) | Eric | 01,02 merged ✓ | READY — dependencies merged |
 | 13 | Sitewide accessibility | Don (QA-side) | 03,04,05,06,07,08,09,10,11,12,33 | wait for all above |
 | 14 | Search metadata / SSR decision | Don | 02,10,11,12 | wait for above + Search Console |
 | 15 | Performance budgets | Don | 03–12,14,33 | wait for above |
-| 16 | CI/previews | Don | 01 | can start after 01 merged |
-| 17 | Backend API foundation | Francis | 02,16 | wait for 02+16 |
+| 16 | CI/previews | Don | 01 merged ✓ | READY — dependency merged |
+| 17 | Backend API foundation | Francis | 02,16 | WAIT — spec 16 |
 | 18 | Relational data foundation | Glory | 17 | wait for 17 |
 | 19 | Durable inquiries + Brevo | Francis (review) / Don (08+estimator) | 08,17,18 | wait for 08+17+18 |
 | 20 | Staff identity + authorization | Francis + Don | 17,18 | wait for 17+18 |
@@ -50,7 +52,7 @@ owner so no deadlock can form. Source: playbook §08 team mapping +
 | 30 | Full-stack deployment | Don | 17,18,19,20,29 | wait for above |
 | 31 | Observability/cost controls | Don | 19,24,27,30 | wait for above |
 | 32 | Scaling decision review | Don | 15,30,31 | wait for above |
-| 33 | Graphics design service redesign | Glory | 02,03 | wait for 02+03 |
+| 33 | Graphics design service redesign | Glory | 02,03 merged ✓ | READY — dependencies merged |
 | 34 | Customer accounts (Clerk) | Francis + Don | 17,18,20 | secret-key gate open |
 
 Owner field = named person who may implement. No other member's agent may touch

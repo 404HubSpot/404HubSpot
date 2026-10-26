@@ -1,7 +1,7 @@
 # 02 — Content, brand and asset truth
 
-Status: IN PROGRESS. Owner: Francis Masila (content truth decision gate).
-Branch: `feature/content/02-content-and-brand-truth`, created from freshly fetched `origin/main` after dependencies merged.
+Status: MERGED (PR #7). Owner: Francis Masila (content truth decision gate).
+Branch: `feature/content/02-content-and-brand-truth`, merged to organization `main`.
 One root spec, one feature branch, one PR; affected layers share this vertical outcome.
 
 ## Problem and outcome

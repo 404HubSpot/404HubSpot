@@ -13,6 +13,8 @@ panel, not a modal; it does not trap focus or lock body scroll. Breakpoint chang
 Inquiry number remains 254708345963; email remains hubspot861@gmail.com. New link messages
 are encoded with encodeURIComponent once. New external tabs use noopener noreferrer.
 Existing service detail and contact page integrations are preserved.
+The contact page accepts `?service=software-development` as a presentation-only prefill for
+the existing Software Development form option. It does not submit the form or bypass validation.
 
 Home service data feeds navbar, footer and ServiceCard so destinations cannot drift.
 Rollback: revert this feature commit; existing baseline routes/assets remain available.
