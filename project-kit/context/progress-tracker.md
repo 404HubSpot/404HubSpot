@@ -2,8 +2,14 @@
 
 ## 0. Execution chain
 
-Current: 01, 02b, 35, 02 (PR #7), and 03 (PR #8) are merged to `main`. Spec 04 is in progress on `feature/frontend/04-software-development-page`.
-Next after spec 04 review/merge: follow dependency order one feature at a time. Spec 14 owns the canonical-domain decision; spec 07 owns per-course fee decisions.
+Current: 01, 02b, 35, 02 (PR #7), 03 (PR #8), and 04 (PR #9) are merged to `main`.
+Spec 05 is complete on `feature/frontend/05-mobile-service-page` (build + diff-check PASS;
+Playwright browser checks unavailable locally — owner authorized automerge 2026-10-27).
+Next after spec 05: Don continues with specs 08 (contact + estimator + Nakuru info) and
+16 (CI/previews), the only other Don-owned specs whose dependencies are merged; specs 13,
+14, 15, 19, 20, 24, 25, 30, 31, 32, 34 (Don-owned) stay blocked on unmerged dependencies.
+Spec 14 owns the canonical-domain decision; spec 07 owns per-course fee decisions.
+Don-owned specs 06, 07, 09, 10, 11, 12, 33 belong to other members — never touched from this session.
 One spec/branch/PR normally; 02b is a documented single exception — do not batch further without approval.
 
 ## 1. Status board — every feature, one by one, no batching
@@ -14,7 +20,8 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 02b | Unified site revamp (owner-approved bundle exception) | MERGED | PR #5; merged to main | Remaining production/provider gates tracked below |
 | 02 | Content, brand and asset truth | MERGED | PR #7; merged to main | Domain, course fees, portrait/media permission and provenance gates remain tracked |
 | 03 | Web development service redesign | MERGED | PR #8; merged to main | Done |
-| 04 | Software development service redesign | IN PROGRESS | Commit `51ccaf3` on `feature/frontend/04-software-development-page`; build PASS (71 modules); integrated browser PASS (34 assertions, five viewports); screenshots saved; `git diff --check` PASS | Review and merge; project browser script unavailable because Playwright is not installed locally |
+| 04 | Software development service redesign | MERGED | PR #9; merged to main `cbb14f1` | Done |
+| 05 | Mobile app development service redesign | IN PROGRESS | Complete on `feature/frontend/05-mobile-service-page` from main `cbb14f1`; `npm run build` PASS (0 errors; CSS 49.74 kB, JS 340.42 kB); `git diff --check` PASS; approved mobile bands `KES 400,000 – 700,000`, `KES 750,000 – 1,500,000`, `From KES 1,500,000` preserved via `pricing.mobile`; store-approval/timeline no-guarantee disclosures added; inquiry route preserved (WhatsApp + `/contact?service=mobile-apps`) | PR open; owner pre-authorized automerge; browser checks not run because Playwright is not installed locally |
 | 05 | Mobile app development service redesign | PLANNED | Depends 02,03 | — |
 | 06 | M-Pesa integration service redesign | PLANNED | Depends 02,03 | — |
 | 07 | Programming classes and learning paths | PLANNED | Depends 01,02 | Class format/fee gate OPEN |
@@ -100,6 +107,18 @@ Per-file hashes: docs/design/evidence/source-snapshot.json; the feature commit c
 - Owner-ordered addition 2026-09-30: vendored external IDE/agent skill packs under `.agents/skills/` (clerk-testing, clerk-vue-patterns, gsap-*, vue; 23 files, ~140K, docs/templates only, no secrets) per explicit `COMMIT AND PUSH THAT ONE TOO`. Not part of 02b spec scope; recorded here as deviation with owner approval.
 - 2026-10-16: PR #5 (02b) and PR #6 (35) are merged to main. Spec 02 owner review confirmed brand name, phone/WhatsApp, email, Instagram/TikTok, current service descriptions, and listed service prices. Contact data already matched source; approved prices updated in the shared catalog. Course fees are removed from all public output until confirmed per course. Content and asset registers added; domain and media permission/provenance remain open.
 - 2026-10-16 spec 02 verification: `npm run build` PASS (69 modules; existing caniuse-lite, lottie eval, and mixed static/dynamic import warnings); direct Node assertions PASS (contact values, all 13 approved service price entries, 12 unpublished course fees); `git diff --check` PASS. `scripts/verify-ui.cjs` was extended to check approved prices and ensure course fees are absent from listing, detail, and SEO output, but browser execution was not completed because Playwright is not installed/configured in this environment. No live form/social validation or permission clearance claimed.
+
+### 3b2. Feature 05 mobile app development service redesign (branch, 2026-10-27)
+
+- Branch cut from fetched `origin/main` at `cbb14f1` (includes merged PR #9 / spec 04).
+- `npm run build`: PASS; 0 errors. Vite warnings unchanged (courses.js static/dynamic import note; caniuse-lite age; lottie eval notice). CSS 49.74 kB (10.08 gzip); JS 340.42 kB (120.00 gzip); HTML 3.00 kB. Built in ~2m.
+- `git diff --check`: PASS.
+- Content gates respected: only owner-approved mobile bands published (`KES 400,000 – 700,000`, `KES 750,000 – 1,500,000`, `From KES 1,500,000` — rendered from `pricing.mobile`); no course fees; no fabricated case studies — concept art visibly labelled "An illustrative concept — not a client project or app screenshot"; store approval and release timelines explicitly not guaranteed (hero copy, testing section note, pricing note, FAQ).
+- Team-capability framing: cross-platform Flutter is the evidenced approach (built + taught); native Android (Kotlin) and native iOS (Swift) presented as scoped options; approach decided in discovery. No unsupported platform promise; no native app or `mobile/` runtime tree created.
+- Accessibility structure: semantic `ol` process, `ul` feature lists, `details/summary` FAQ, `aria-hidden` decorative art with the illustrative disclosure kept as real text, inquiry links keep `noopener noreferrer` with messages encoded by the shared `whatsappUrl`.
+- Inquiry route preserved: WhatsApp deep link + `Request a scoped quote` → `/contact?service=mobile-apps` (confirm-only prefill; Contact.vue mapping lands with spec 08, this session).
+- Browser checks NOT run: Playwright not installed in this environment (same limitation recorded for spec 04). `scripts/verify-ui.cjs` price assertions for `/services/mobile-apps` remain satisfied by construction (exact `pricing.mobile` strings), but this is a code-level statement, not a browser run — recorded as an open operator gate.
+- Tracker rows 04→MERGED (correction: PR #9 merged `cbb14f1` proves it; not Francis's code — status-board bookkeeping only) and 05→complete; execution chain updated.
 
 ## 4. Contract synchronization and deviations
 
