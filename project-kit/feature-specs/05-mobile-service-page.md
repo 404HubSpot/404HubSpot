@@ -1,7 +1,7 @@
 # 05 — Mobile app development service redesign
 
-Status: PLANNED; not implemented in feature 01. Owner: frontend.
-Branch: `feature/frontend/05-mobile-service-page` — create from freshly fetched `origin/main` only after dependencies merge.
+Status: Implementation complete on branch `feature/frontend/05-mobile-service-page`, cut from `origin/main` at `cbb14f1` after specs 02, 03 and 04 merged (PR #9). Automerge pre-authorized by owner (Don Artkins session, 2026-10-27).
+Branch: `feature/frontend/05-mobile-service-page`.
 One root spec, one feature branch, one PR; affected layers share this vertical outcome.
 
 ## Problem and outcome
