@@ -2,9 +2,8 @@
 
 ## 0. Execution chain
 
-Current: 01, 02b, 35, 02 (PR #7), 03 (PR #8), and 04 (PR #9) are merged to `main`.
-Spec 05 is complete on `feature/frontend/05-mobile-service-page` (build + diff-check PASS;
-Playwright browser checks unavailable locally — owner authorized automerge 2026-10-27).
+Current: 01, 02b, 35, 02 (PR #7), 03 (PR #8), 04 (PR #9), and 05 (PR #10) are merged to `main`.
+Spec 05 merged 2026-10-27 (automerge pre-authorized by owner).
 Next after spec 05: Don continues with specs 08 (contact + estimator + Nakuru info) and
 16 (CI/previews), the only other Don-owned specs whose dependencies are merged; specs 13,
 14, 15, 19, 20, 24, 25, 30, 31, 32, 34 (Don-owned) stay blocked on unmerged dependencies.
@@ -21,7 +20,7 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 02 | Content, brand and asset truth | MERGED | PR #7; merged to main | Domain, course fees, portrait/media permission and provenance gates remain tracked |
 | 03 | Web development service redesign | MERGED | PR #8; merged to main | Done |
 | 04 | Software development service redesign | MERGED | PR #9; merged to main `cbb14f1` | Done |
-| 05 | Mobile app development service redesign | IN PROGRESS | Complete on `feature/frontend/05-mobile-service-page` from main `cbb14f1`; `npm run build` PASS (0 errors; CSS 49.74 kB, JS 340.42 kB); `git diff --check` PASS; approved mobile bands `KES 400,000 – 700,000`, `KES 750,000 – 1,500,000`, `From KES 1,500,000` preserved via `pricing.mobile`; store-approval/timeline no-guarantee disclosures added; inquiry route preserved (WhatsApp + `/contact?service=mobile-apps`) | PR open; owner pre-authorized automerge; browser checks not run because Playwright is not installed locally |
+| 05 | Mobile app development service redesign | MERGED | PR #10 (merge pre-authorized by owner 2026-10-27); build PASS, `git diff --check` PASS; approved bands preserved | Browser checks not run locally — Playwright unavailable (operator gate; verify-ui assertions for mobile prices satisfied by construction) |
 | 05 | Mobile app development service redesign | PLANNED | Depends 02,03 | — |
 | 06 | M-Pesa integration service redesign | PLANNED | Depends 02,03 | — |
 | 07 | Programming classes and learning paths | PLANNED | Depends 01,02 | Class format/fee gate OPEN |
