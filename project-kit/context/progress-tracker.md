@@ -24,7 +24,7 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 05 | Mobile app development service redesign | PLANNED | Depends 02,03 | — |
 | 06 | M-Pesa integration service redesign | PLANNED | Depends 02,03 | — |
 | 07 | Programming classes and learning paths | PLANNED | Depends 01,02 | Class format/fee gate OPEN |
-| 08 | Contact and inquiry experience | PLANNED | Depends 01,02 | Form/meeting config gate OPEN |
+| 08 | Contact and inquiry experience | IMPLEMENTED — uncommitted, awaiting push | Depends 01,02 | Form/meeting config gate OPEN |
 | 09 | Delivery process and collaboration page | PLANNED | Depends 01,02 | — |
 | 10 | Portfolio discovery and filtering | PLANNED | Depends 01,02 | Claims/permission gate OPEN |
 | 11 | Evidence-backed case study pages | PLANNED | Depends 10 | Claims/permission gate OPEN |
