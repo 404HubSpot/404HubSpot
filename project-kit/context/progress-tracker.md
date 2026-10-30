@@ -6,7 +6,7 @@ Current: 01, 02b, 35, 02 (PR #7), 03 (PR #8), 04 (PR #9), and 05 (PR #10) are me
 Spec 05 merged 2026-10-27 (automerge pre-authorized by owner).
 Spec 08 (contact + estimator + Nakuru info) is IMPLEMENTED — committed as 1798756 and pushed to
 origin/feature/frontend/08-contact-inquiry-experience; `npm run build` PASS, `git diff --check` PASS;
-awaiting owner decision before merge to `main` (spec 08 merge not pre-authorized).
+owner authorized merge to `main` (user "MERGED PROCEED"); awaiting merge action by owner via GitHub.
 Next after spec 05: Don continues with spec 16 (CI/previews) — the only other Don-owned spec whose
 dependencies are merged — but it is gated on a hosting/budget/owner decision; specs 13, 14, 15,
 19, 20, 24, 25, 30, 31, 32, 34 (Don-owned) stay blocked on unmerged dependencies.
@@ -27,7 +27,7 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 05 | Mobile app development service redesign | PLANNED | Depends 02,03 | — |
 | 06 | M-Pesa integration service redesign | PLANNED | Depends 02,03 | — |
 | 07 | Programming classes and learning paths | PLANNED | Depends 01,02 | Class format/fee gate OPEN |
-| 08 | Contact and inquiry experience | IMPLEMENTED — committed 1798756, pushed to origin; build PASS, diff --check PASS; awaiting merge decision | Depends 01,02 | Form/meeting config gate OPEN; merge to `main` = owner decision |
+| 08 | Contact and inquiry experience | IMPLEMENTED — committed 1798756, pushed to origin; build PASS, diff --check PASS; owner authorized merge; awaiting merge action via GitHub | Depends 01,02 | Form/meeting config gate OPEN; merge to `main` = owner action |
 | 09 | Delivery process and collaboration page | PLANNED | Depends 01,02 | — |
 | 10 | Portfolio discovery and filtering | PLANNED | Depends 01,02 | Claims/permission gate OPEN |
 | 11 | Evidence-backed case study pages | PLANNED | Depends 10 | Claims/permission gate OPEN |
