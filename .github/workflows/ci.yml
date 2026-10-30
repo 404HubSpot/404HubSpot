@@ -1,0 +1,101 @@
+name: CI / Preview
+
+on:
+  push:
+    branches: ["feature/infra/16-ci-and-preview"]
+  pull_request:
+    branches: ["main"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "20"
+  PREVIEW_PORT: 4173
+  BASE_URL: http://127.0.0.1:4173
+
+jobs:
+  check:
+    name: Build + UI/contract checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint: reject whitespace errors
+        run: git diff --check
+
+      - name: Build (Vite)
+        run: npm run build
+
+      - name: Start preview server
+        run: npm run preview -- --port ${{ env.PREVIEW_PORT }} &
+        shell: bash
+
+      - name: Wait for preview server to be ready
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf "${{ env.BASE_URL }}" > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          echo "Preview server did not become ready" >&2
+          exit 1
+        shell: bash
+
+      - name: Run UI verification (Chromium)
+        run: BASE_URL=${{ env.BASE_URL }} node scripts/verify-ui.cjs
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: 0
+          CHROMIUM_PATH: ${{ env.CHROMIUM_PATH }}
+
+      - name: Upload UI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-evidence-${{ github.run_id }}
+          path: |
+            docs/design/evidence/
+          retention-days: 7
+
+  preview:
+    name: Deploy preview (Vercel)
+    needs: check
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Vite)
+        run: npm run build
+
+      - name: Deploy preview to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
