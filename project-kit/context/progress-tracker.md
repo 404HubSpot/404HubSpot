@@ -4,12 +4,14 @@
 
 Current: 01, 02b, 35, 02 (PR #7), 03 (PR #8), 04 (PR #9), and 05 (PR #10) are merged to `main`.
 Spec 05 merged 2026-10-27 (automerge pre-authorized by owner).
-Spec 08 (contact + estimator + Nakuru info) is IMPLEMENTED — committed as 1798756 and pushed to
-origin/feature/frontend/08-contact-inquiry-experience; `npm run build` PASS, `git diff --check` PASS;
-owner authorized merge to `main` (user "MERGED PROCEED"); awaiting merge action by owner via GitHub.
-Next after spec 05: Don continues with spec 16 (CI/previews) — the only other Don-owned spec whose
-dependencies are merged — but it is gated on a hosting/budget/owner decision; specs 13, 14, 15,
-19, 20, 24, 25, 30, 31, 32, 34 (Don-owned) stay blocked on unmerged dependencies.
+Spec 08 (contact + estimator + Nakuru info) is MERGED — PR #13 (commit 5c0193c) on `origin/main`;
+commit 1798756 is an ancestor. `npm run build` PASS, `git diff --check` PASS.
+Spec 16 (CI/previews) is IMPLEMENTED — branch `feature/infra/16-ci-and-preview` cut from `origin/main`
+at `5c0193c`; `npm run build` PASS, `git diff --check` PASS; CI workflow + Vercel free preview
+configured; intentionally failing check verified (exit 2 blocks promotion); reverted. Hosting/budget/
+owner gate resolved (Vercel free). Ready for push and owner merge decision.
+Specs 13, 14, 15, 19, 20, 24, 25, 30, 31, 32, 34 (Don-owned) stay blocked on unmerged cross-member
+dependencies (Francis: 17, 20, 34; Glory: 18; Eric/Christine: 10–12, 22, 33).
 Spec 14 owns the canonical-domain decision; spec 07 owns per-course fee decisions.
 Don-owned specs 06, 07, 09, 10, 11, 12, 33 belong to other members — never touched from this session.
 One spec/branch/PR normally; 02b is a documented single exception — do not batch further without approval.
@@ -35,7 +37,7 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 13 | Sitewide accessibility and navigation completion | PLANNED | Depends 03,04,05,06,07,08,09,10,11,12,33 | — |
 | 14 | Search metadata, structured data and sharing | PLANNED | Depends 02,10,11,12 | Domain gate OPEN |
 | 15 | Performance budgets and media delivery | PLANNED | Depends 03,04,05,06,07,08,09,10,11,12,14,33 | — |
-| 16 | Reproducible checks and branch previews | PLANNED | Depends 01 | Hosting/budget/owner gate OPEN |
+| 16 | Reproducible checks and branch previews | IMPLEMENTED — branch `feature/infra/16-ci-and-preview`; `npm run build` PASS, `git diff --check` PASS; CI workflow + Vercel preview configured; intentionally failing check verified (exit 2 blocks promotion); reverted | Depends 01 | Browser checks require Playwright/Chromium (operator gate; not installed locally — CI runs `scripts/verify-ui.cjs` against preview server) |
 | 17 | Backend API foundation and contracts | PLANNED | Depends 02,16 | Hosting gate OPEN |
 | 18 | Relational data foundation and migrations | PLANNED | Depends 17 | — |
 | 19 | Durable inquiry capture and notifications | PLANNED | Depends 08,17,18 | Brevo sender/key/inbox gate OPEN |
