@@ -10,5 +10,9 @@
   (PLANNING ONLY, no code). Provisional prices remain owner-gated via spec 02; no Next.js/framework
   swap — crawlability evaluated inside spec 14.
 - 2026-10-16: Five named owners assigned (Francis, Don, Eric, Christine, Glory) with hard rules R1–R4:
-  no cross-implementation, dependency handoff to user, dependent specs share one owner, planning-only
-  branches touch docs/research/project-kit/AGENTS.md only.
+  no cross-implementation, dependency handoff to user, the original same-owner dependency rule, and
+  planning-only branches touching docs/research/project-kit/AGENTS.md only. R3 was revised 2026-10-31.
+- 2026-10-31: User authorized removing spec 17 as a prerequisite for spec 18 while keeping Glory
+  as its owner, by defining an independent database migration package under `database/`. Cross-owner
+  dependency rule R3 now requires sequential handoffs after prerequisites merge to `main`; consumers
+  of both specs 17 and 18 still wait for both. Spec 18's provider, retention and backup decisions remain open.

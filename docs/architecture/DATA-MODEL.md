@@ -1,8 +1,9 @@
 # Proposed platform data model
 
 Planning only. No schema or migrations are installed. PostgreSQL is the proposed first store;
-review engine/version and provider at spec 18. UUID identifiers, UTC timestamps, foreign keys,
-explicit status constraints, parameterized access and version fields for concurrent updates.
+spec 18 owns an independent `database/` migration package, where the engine, version and provider
+will be reviewed. UUID identifiers, UTC timestamps, foreign keys, explicit status constraints,
+parameterized access and version fields for concurrent updates.
 
 | Entity | Minimum fields and ownership | Constraints / access |
 |---|---|---|

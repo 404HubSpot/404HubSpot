@@ -8,7 +8,8 @@ Feature 01 can complete without these. Future specs remain planned/blocked where
 | Business phone/WhatsApp (+254 708 345963), email (hubspot861@gmail.com), Instagram (@404hubspot), and TikTok (@404.hubspot) confirmed by owner. Confirm canonical primary domain; confirm team-member portrait/profile publication permissions. | Domain: 14; team profiles/assets: 02, 12 |
 | Class formats, schedules, availability and approved fees? | 07 |
 | Brevo sender domain verified? API key stored server-side? Team inbox (INQUIRY_TO_EMAIL)? Formspree dropped per owner order (02b). | 19 live; sender/key gate sends |
-| Hosting provider, region, monthly budget and operational owner? | 16 production, 17–18, 30 |
+| Backend hosting provider/runtime, region, monthly budget and operational owner? | 17, 30 |
+| Managed database provider and database retention/backup approach? | 18, 30; coordinate retention policy with 29 |
 | Staff identities and who may edit, publish, view inquiries and administer access? | 20–25 |
 | Initial approved MCP clients and whether remote or local-only access is needed first? | 24 |
 | AI use-case priority, provider/model budget and approved data handling? | 26–28 |

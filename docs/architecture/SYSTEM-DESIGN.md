@@ -62,9 +62,12 @@ invoke staff tools or inspect inquiry records.
 ## Deployment and source shape
 
 Now: existing `src/`, `public/`, package files; documentation-only layer kits.
-When feature 17 starts, introduce `backend/` with its own manifest and owner instructions,
-without moving frontend source. Proposed backend: Node.js LTS + TypeScript + Fastify and
-PostgreSQL. Verify supported versions, hosting and maintenance fit in that spec before pinning.
+Spec 18 may independently introduce `database/` as a migration and verification package,
+with its own manifest and owner instructions; it is not an API or deployed service. Backend
+application code consumes its documented migration/connection contract. When feature 17 starts,
+introduce `backend/` with its own manifest and owner instructions, without moving frontend source.
+Proposed backend: Node.js LTS + TypeScript + Fastify and PostgreSQL. Verify supported versions,
+hosting and maintenance fit in that spec before pinning.
 `backend/src/modules/{content,inquiries,identity,audit}` owns domain logic;
 `backend/src/adapters/{http,mcp,mail,ai}` translates protocols. Schema/DTO contracts are
 versioned in docs/contracts plus generated schemas when the backend exists.
@@ -98,3 +101,7 @@ MCP failure cannot bypass authorization or retry a write without an idempotency 
 owns responsibility; [data model](DATA-MODEL.md) owns proposed entities;
 [contracts](../contracts/FUTURE-PLATFORM.md) owns API/tool draft semantics;
 [scaling triggers](SCALING-PATH.md) owns decisions to add infrastructure.
+
+2026-10-31 sequencing amendment: spec 18 is independent of spec 17 and owns
+the migration package only. Features that consume both foundations still wait
+until both prerequisite specs are merged to `main`.

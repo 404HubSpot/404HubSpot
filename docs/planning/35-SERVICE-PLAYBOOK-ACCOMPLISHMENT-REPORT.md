@@ -90,7 +90,7 @@ Price reconciliation: site bands sit ABOVE playbook entry tiers (site Landing 45
 | `project-kit/feature-specs/README.md` | Index: spec 35 planning-only row; dependency note unchanged | discoverability |
 | `project-kit/feature-specs/35-service-playbook-sync.md` | New planning spec: scope = docs/research/trackers only; NO-CODE allowlist; gates; acceptance = report + sync + green checks | one-spec rule |
 | `project-kit/layers/*/README.md` (8) | Playbook-ownership pointer: each kit names its playbook gaps + owning specs; status routes to root tracker | s08 mapping |
-| `AGENTS.md` | Hard rules appended: R1 no-cross-implementation; R2 dependency-handoff (report blocker+holder, never blind); R3 dependent specs share one owner; R4 planning-only branches touch docs/research/trackers/spec-md only | user order (PM) |
+| `AGENTS.md` | Hard rules appended: R1 no-cross-implementation; R2 dependency-handoff; R3 initially required same-owner dependencies and was amended 2026-10-31 to require sequential cross-owner handoffs; R4 planning-only branches touch docs/research/trackers/spec-md only | user order (PM) |
 | `docs/README.md` | Reading map: playbook report + team assignments entries | discoverability |
 | `docs/decisions/README.md` | 2026-10-16 entries: playbook adoption, provisional-price stance, Vue-retention vs SSR evaluation, 5-owner assignment | audit trail |
 
@@ -115,15 +115,15 @@ Price reconciliation: site bands sit ABOVE playbook entry tiers (site Landing 45
 5. **Crawlability before spend (s09).** Recording the SPA-shell warning as a
    spec-14 decision prevents pouring copy into uncrawlable pages. Benefit:
    search + link previews work before the Prove phase.
-6. **Single-owner dependency chains (s10 + TEAM-ASSIGNMENTS).** Grouping
-   dependent specs under one owner (e.g. Don holds 08→19; Francis holds
-   17→19-review) eliminates cross-agent blind implementation and deadlocks.
-   Benefit: the 90-day roadmap stays sequential and reviewable.
+6. **Sequential dependency handoffs (s10 + TEAM-ASSIGNMENTS).** Each owner
+   waits for prerequisites to merge to `main`, preventing overlapping
+   implementation while allowing cross-owner work. Benefit: the 90-day
+   roadmap stays reviewable.
 7. **Modular-monolith restraint preserved.** Playbook demands no new runtime
    (no Next.js swap, no microservices, no mobile app) — the plan records
    SSR/prerender as an evaluation inside spec 14 and keeps backend as the
-   staged modular monolith (17→18→19…). Benefit: architecture grows only on
-   evidence (SCALING-PATH gates intact).
+   staged modular monolith (independent 17 and 18 foundations → 19…). Benefit:
+   architecture grows only on evidence (SCALING-PATH gates intact).
 
 ## 5. Verification (this branch — planning gates only)
 
@@ -156,7 +156,7 @@ Price reconciliation: site bands sit ABOVE playbook entry tiers (site Landing 45
 | Frontend / UI Engineer | Christine Jemutai (Frontend, Vue, 10 repos) | 02-content, 03 (+hub), 09, 22-UX | 03 ← 01+02; 09 ← 01+02 |
 | Mobile Engineer | Don Artkins (Fullstack+Mobile/Dart, 69 repos, Nakuru) | 05, 08, 16, 24, 25, 30, 31 | 05 ← 02+03; 08 ← 01+02; 16 ← 01 |
 | Product Designer | Eric Njuki (UI/UX+GSAP, 6 repos) | 10, 11, 12-team-UX, 21-UX | 10 ← 01+02; 11 ← 10; 12 ← 01+02; 21 ← 19+20 |
-| Instructor / Academy Lead | Glory Kinya (Fullstack+Design+ML, 46 repos) | 07, 18, 29 | 07 ← 01+02; 18 ← 17; 29 ← 19+20+21 |
+| Instructor / Academy Lead | Glory Kinya (Fullstack+Design+ML, 46 repos) | 07, 18, 29 | 07 ← 01+02; 18 independent after its own readiness gates; 29 ← 19+20+21 |
 | Client Success / Growth | Don Artkins (Architect+growth) + Francis (final review) | 13, 14, 15 (Don); guides/blog 22-review (Francis) | 13 ← 12 specs; 14 ← 02+10+11+12; 15 ← 12 specs |
 | Staff workspace + AI/MCP | Eric (21-UX) + Don (24/25) + Glory-backed data (26 needs 22) + Christine (22-UX) | 20 (Francis+Don), 21, 26, 27, 28-opt, 32, 34 | 20 ← 17+18; 21 ← 19+20; 26 ← 22; 27 ← 21+26 |
 

@@ -1,11 +1,14 @@
 # 404HubSpot — Team assignments & ownership hard rules (planning only)
 
 Date: 2026-10-16 · Branch: `docs/web/35-service-playbook-sync`.
-PM rule: one spec, one branch, one review. Dependent specs grouped under ONE
-owner so no deadlock can form. Source: playbook §08 team mapping +
+PM rule: one spec, one branch, one review. Cross-owner dependencies use
+sequential handoffs: a dependent spec waits until each prerequisite is merged
+to `main`; no overlapping implementation. Source: playbook §08 team mapping +
 `src/data/site.js` verified members + root tracker spec IDs.
 Execution status refreshed against organization `main` on 2026-10-26: Specs 02 (PR #7)
 and 03 (PR #8) are merged. The root progress tracker remains the status authority.
+2026-10-31 planning amendment: spec 18 is an independent database migration package;
+its database-provider, retention and backup gates remain open.
 
 ## 1. Team members (verified from src/data/site.js, 5 owners)
 
@@ -37,7 +40,7 @@ and 03 (PR #8) are merged. The root progress tracker remains the status authorit
 | 15 | Performance budgets | Don | 03–12,14,33 | wait for above |
 | 16 | CI/previews | Don | 01 merged ✓ | READY — dependency merged |
 | 17 | Backend API foundation | Francis | 02,16 | WAIT — spec 16 |
-| 18 | Relational data foundation | Glory | 17 | wait for 17 |
+| 18 | Relational data foundation + independent migration package | Glory | None | READY after database provider, retention and backup decisions |
 | 19 | Durable inquiries + Brevo | Francis (review) / Don (08+estimator) | 08,17,18 | wait for 08+17+18 |
 | 20 | Staff identity + authorization | Francis + Don | 17,18 | wait for 17+18 |
 | 21 | Staff inquiry workspace (+UX Eric) | Eric | 19,20 | wait for 19+20 |
@@ -70,9 +73,10 @@ R2. **Dependency handoff.** If task A (owned by member X) depends on task B
 main. The user manually reaches out to <name> to unblock — no agent implements
 blindly across owners.
 
-R3. **Dependent specs share one owner.** Specs that depend on each other are
-grouped under a single owner in §2 so cross-owner deadlocks cannot form
-(e.g. Don holds 08→19 estimator+capture; Francis holds 17→19-review).
+R3. **Sequential cross-owner handoffs.** A dependency may cross owners. The
+dependent owner must wait until the prerequisite is merged to `main`, then
+continue on a fresh branch; do not overlap implementation or reassign a spec
+just to bypass its dependency. §2 records each owner and dependency holder.
 
 R4. **Planning-only scope.** Branches like `docs/web/35-service-playbook-sync`
 touch `docs/`, `research/`, `project-kit/`, and `AGENTS.md` only — zero `src/`,
