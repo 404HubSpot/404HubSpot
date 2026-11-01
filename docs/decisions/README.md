@@ -16,3 +16,7 @@
   as its owner, by defining an independent database migration package under `database/`. Cross-owner
   dependency rule R3 now requires sequential handoffs after prerequisites merge to `main`; consumers
   of both specs 17 and 18 still wait for both. Spec 18's provider, retention and backup decisions remain open.
+- 2026-11-01: User clarified that production hosting, region, budget, operator and managed-database
+  decisions belong at deployment near the end of the project. Specs 17 and 18 may be implemented and
+  tested locally; production deployment remains gated by spec 30, and retention/privacy approval is
+  required before any live inquiry collection.

@@ -67,7 +67,8 @@ with its own manifest and owner instructions; it is not an API or deployed servi
 application code consumes its documented migration/connection contract. When feature 17 starts,
 introduce `backend/` with its own manifest and owner instructions, without moving frontend source.
 Proposed backend: Node.js LTS + TypeScript + Fastify and PostgreSQL. Verify supported versions,
-hosting and maintenance fit in that spec before pinning.
+runtime compatibility in spec 17; production hosting, budget and operating model are decided in
+spec 30. Local implementation/testing can precede that deployment decision.
 `backend/src/modules/{content,inquiries,identity,audit}` owns domain logic;
 `backend/src/adapters/{http,mcp,mail,ai}` translates protocols. Schema/DTO contracts are
 versioned in docs/contracts plus generated schemas when the backend exists.

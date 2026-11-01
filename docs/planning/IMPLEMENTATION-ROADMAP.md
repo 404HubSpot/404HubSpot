@@ -16,7 +16,9 @@ Spec 33 was added at completeness review; its execution is here, not after scali
 ## Phase B — durable operations
 
 17 API foundation and 18 independent relational migration package may proceed
-separately after their own readiness gates; 19 durable inquiries depends on 08/17/18.
+separately using local/test environments; production hosting, provider, budget,
+backup and operations decisions are finalized in 30 before deployment. 19 durable
+inquiries depends on 08/17/18 and must resolve live data handling before collecting leads.
 20 staff identity depends on 17/18; 21 staff inquiry workspace depends on 19/20.
 22 content drafts/publishing depends on approved portfolio/team content and 18/20.
 23 managed assets depends on 18/20/22. 29 retention/export/delete depends on 19/20/21.

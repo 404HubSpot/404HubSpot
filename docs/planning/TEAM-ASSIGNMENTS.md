@@ -39,8 +39,8 @@ its database-provider, retention and backup gates remain open.
 | 14 | Search metadata / SSR decision | Don | 02,10,11,12 | wait for above + Search Console |
 | 15 | Performance budgets | Don | 03–12,14,33 | wait for above |
 | 16 | CI/previews | Don | 01 merged ✓ | READY — dependency merged |
-| 17 | Backend API foundation | Francis | 02,16 | WAIT — spec 16 |
-| 18 | Relational data foundation + independent migration package | Glory | None | READY after database provider, retention and backup decisions |
+| 17 | Backend API foundation | Francis | 02,16 | Local implementation/testing eligible; production decisions deferred to 30 |
+| 18 | Relational data foundation + independent migration package | Glory | None | Local/test migrations eligible; production provider/backup decisions deferred to 30 |
 | 19 | Durable inquiries + Brevo | Francis (review) / Don (08+estimator) | 08,17,18 | wait for 08+17+18 |
 | 20 | Staff identity + authorization | Francis + Don | 17,18 | wait for 17+18 |
 | 21 | Staff inquiry workspace (+UX Eric) | Eric | 19,20 | wait for 19+20 |

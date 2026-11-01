@@ -156,7 +156,7 @@ Price reconciliation: site bands sit ABOVE playbook entry tiers (site Landing 45
 | Frontend / UI Engineer | Christine Jemutai (Frontend, Vue, 10 repos) | 02-content, 03 (+hub), 09, 22-UX | 03 ← 01+02; 09 ← 01+02 |
 | Mobile Engineer | Don Artkins (Fullstack+Mobile/Dart, 69 repos, Nakuru) | 05, 08, 16, 24, 25, 30, 31 | 05 ← 02+03; 08 ← 01+02; 16 ← 01 |
 | Product Designer | Eric Njuki (UI/UX+GSAP, 6 repos) | 10, 11, 12-team-UX, 21-UX | 10 ← 01+02; 11 ← 10; 12 ← 01+02; 21 ← 19+20 |
-| Instructor / Academy Lead | Glory Kinya (Fullstack+Design+ML, 46 repos) | 07, 18, 29 | 07 ← 01+02; 18 independent after its own readiness gates; 29 ← 19+20+21 |
+| Instructor / Academy Lead | Glory Kinya (Fullstack+Design+ML, 46 repos) | 07, 18, 29 | 07 ← 01+02; 18 independent with local/test data only before deployment gates in 30; 29 ← 19+20+21 |
 | Client Success / Growth | Don Artkins (Architect+growth) + Francis (final review) | 13, 14, 15 (Don); guides/blog 22-review (Francis) | 13 ← 12 specs; 14 ← 02+10+11+12; 15 ← 12 specs |
 | Staff workspace + AI/MCP | Eric (21-UX) + Don (24/25) + Glory-backed data (26 needs 22) + Christine (22-UX) | 20 (Francis+Don), 21, 26, 27, 28-opt, 32, 34 | 20 ← 17+18; 21 ← 19+20; 26 ← 22; 27 ← 21+26 |
 

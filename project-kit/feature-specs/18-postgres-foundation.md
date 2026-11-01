@@ -1,7 +1,7 @@
 # 18 — Relational data foundation and migrations
 
 Status: PLANNED; not implemented in feature 01. Owner: Glory (data).
-Branch: `feature/data/18-postgres-foundation` — create from freshly fetched `origin/main` after its readiness gates are resolved.
+Branch: `feature/data/18-postgres-foundation` — create from freshly fetched `origin/main` after this planning revision merges.
 One root spec, one feature branch, one PR; affected layers share this vertical outcome.
 
 ## Problem and outcome
@@ -13,7 +13,11 @@ Establish a migration-tested store for content, staff identities and inquiry wor
 Dependencies: None. This spec creates an independent database migration package; it does not
 depend on the backend API in spec 17. Read [architecture](../../docs/architecture/SYSTEM-DESIGN.md),
 [roadmap](../../docs/planning/IMPLEMENTATION-ROADMAP.md), root tracker and affected contracts.
-Before code: Managed database provider, retention and backup approach. Unresolved external facts remain explicit gates; never fabricate them.
+Use an isolated local or test database for migration and restore verification. Selection of the
+managed production provider and production backup plan belongs to spec 30; finalize retention
+policy with spec 29 before collecting live data. These production decisions do not block this
+spec's local implementation and tests. Unresolved external facts remain explicit gates; never
+fabricate them.
 Confirm current provider/library versions from official sources at implementation and record date.
 
 ## Owned files and layer boundaries
@@ -44,11 +48,13 @@ No secrets or production user data in fixtures. All privileged actions authorize
 - [ ] Foreign-key/status/uniqueness constraints reject invalid writes.
 - [ ] The application-runtime identity cannot perform schema administration.
 - [ ] Backup/restore can be exercised in a non-production environment.
+- [ ] Production provider selection and restore drill are recorded by spec 30 before deployment.
 
 ## Verification and evidence
 
 Database integration suite including concurrent uniqueness tests; schema diff; restore smoke test.
-Use synthetic data and a non-production database; do not require a running spec 17 API.
+Use synthetic data and a non-production database; do not require a running spec 17 API. Production
+backup configuration and restore evidence are deployment gates owned by spec 30.
 Before implementation, register exact executable commands for newly introduced tooling in the
 stack contract and this spec. Run existing `npm run build` and `git diff --check` where frontend
 changes apply. Record revision, environment, pass/fail/skip counts and unavailable operator gates.
