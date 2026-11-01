@@ -10,14 +10,15 @@ Spec 16 (CI/previews) is IMPLEMENTED — branch `feature/infra/16-ci-and-preview
 at `5c0193c`; `npm run build` PASS, `git diff --check` PASS; CI workflow + Vercel free preview
 configured; intentionally failing check verified (exit 2 blocks promotion); reverted. Hosting/budget/
 owner gate resolved (Vercel free). Ready for push and owner merge decision.
-Spec 18's dependency/scope revision is proposed on `docs/data/18-independent-postgres-foundation`;
-the proposal removes its spec 17 dependency and makes it an independent `database/` migration package.
-It is not effective on `main` until the planning change is reviewed and merged. Production provider
-and backup decisions for specs 17/18 are deferred to deployment spec 30; local/test implementation
-is not blocked. Retention/privacy approval is required before live inquiry collection. Planning
-verification: `git diff --check` PASS; planning-only changes; no runtime files or runtime checks.
-Specs 13, 14, 15, 19, 20, 24, 25, 30, 31, 32, 34 (Don-owned) stay blocked on unmerged cross-member
-dependencies (Francis: 17, 20, 34; Glory: 18; Eric/Christine: 10–12, 22, 33).
+Spec 18's planning revision is MERGED — PR #15 (commit `4ed6850`): it is Glory-owned, independent
+of spec 17, and scoped to a `database/` migration package. Spec 18 is OPEN for local/test
+implementation on a fresh branch from `origin/main`. Production provider and backup decisions are
+deferred to spec 30; retention/privacy approval is required before live inquiry collection.
+Planning revision verification: `git diff --check` PASS; planning-only changes; no runtime files
+or runtime checks.
+Specs 19, 20, 24, 25, 30, 31, 32 and 34 remain blocked on their listed unmerged prerequisites;
+spec 18 itself is now eligible for Glory. Specs 13–15 remain dependent on the public-portfolio work
+listed in the status board.
 Spec 14 owns the canonical-domain decision; spec 07 owns per-course fee decisions.
 Don-owned specs 06, 07, 09, 10, 11, 12, 33 belong to other members — never touched from this session.
 One spec/branch/PR normally; 02b is a documented single exception — do not batch further without approval.
@@ -45,7 +46,7 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 15 | Performance budgets and media delivery | PLANNED | Depends 03,04,05,06,07,08,09,10,11,12,14,33 | — |
 | 16 | Reproducible checks and branch previews | IMPLEMENTED — branch `feature/infra/16-ci-and-preview`; `npm run build` PASS, `git diff --check` PASS; CI workflow + Vercel preview configured; intentionally failing check verified (exit 2 blocks promotion); reverted | Depends 01 | Browser checks require Playwright/Chromium (operator gate; not installed locally — CI runs `scripts/verify-ui.cjs` against preview server) |
 | 17 | Backend API foundation and contracts | PLANNED | Depends 02,16 | Local implementation/testing may proceed; production hosting/budget/operator decisions deferred to 30 |
-| 18 | Relational data foundation and migrations | PLANNED | Dependency revision proposed: none; independent database package | Local/test migrations may proceed; production provider/backup decisions deferred to 30; retention settled before live data via 29 |
+| 18 | Relational data foundation and migrations | OPEN — ready for Glory | Independent database migration package; dependency/scope revision merged in PR #15 | Local/test implementation eligible; production provider/backup deferred to 30; retention/privacy before live data |
 | 19 | Durable inquiry capture and notifications | PLANNED | Depends 08,17,18 | Brevo sender/key/inbox gate OPEN |
 | 20 | Staff identity and authorization | PLANNED | Depends 17,18 | Identity gate OPEN |
 | 21 | Staff inquiry workspace | PLANNED | Depends 19,20 | — |
