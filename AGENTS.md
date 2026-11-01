@@ -106,9 +106,11 @@ R2. Dependency handoff. If task A (owned by member X) depends on task B
    lands in main. The user manually reaches out to <name> to unblock — no
    agent implements blindly across owners.
 
-R3. Dependent specs share one owner. Specs that depend on each other are
-   grouped under a single owner in TEAM-ASSIGNMENTS.md §2 so cross-owner
-   deadlocks cannot form.
+R3. Sequential cross-owner handoffs. A dependency may cross owners. The
+dependent owner must wait until the prerequisite is merged to `main`, then
+continue on a fresh branch; do not overlap implementation or reassign a spec
+just to bypass its dependency. TEAM-ASSIGNMENTS.md §2 records each owner and
+dependency holder.
 
 R4. Planning-only scope. Branches such as `docs/web/35-service-playbook-sync`
    touch `docs/`, `research/`, `project-kit/`, and `AGENTS.md` only — zero

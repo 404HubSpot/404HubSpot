@@ -2,7 +2,7 @@
 
 Builds, environments, deployment, secrets and operating evidence.
 
-Owning spec IDs: 16, 17–18, 30–32. [All specs](../../feature-specs/README.md).
+Owning spec IDs: 16–17, 30–32. [All specs](../../feature-specs/README.md).
 [Root tracker](../../context/progress-tracker.md) is the only delivery status authority.
 [Layer map](../../../docs/architecture/LAYER-MAP.md) defines boundaries.
 

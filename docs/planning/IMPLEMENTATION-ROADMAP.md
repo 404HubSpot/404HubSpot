@@ -15,7 +15,10 @@ Spec 33 was added at completeness review; its execution is here, not after scali
 
 ## Phase B — durable operations
 
-17 API foundation → 18 relational store. 19 durable inquiries depends on 08/17/18.
+17 API foundation and 18 independent relational migration package may proceed
+separately using local/test environments; production hosting, provider, budget,
+backup and operations decisions are finalized in 30 before deployment. 19 durable
+inquiries depends on 08/17/18 and must resolve live data handling before collecting leads.
 20 staff identity depends on 17/18; 21 staff inquiry workspace depends on 19/20.
 22 content drafts/publishing depends on approved portfolio/team content and 18/20.
 23 managed assets depends on 18/20/22. 29 retention/export/delete depends on 19/20/21.
@@ -44,7 +47,8 @@ crawlability fix decision (14, Don).
 Days 22–45 Prove: 2 case studies (10→11), Spark pilot cohort (07), academy+apply page (07), first guides (22).
 Days 46–90 Scale: Marathon enrolment (07), testimonials, win-rate review, hire/train gaps (all owners).
 Weekly metrics: enquiries, quote-to-win, avg project value, cohort fill rate, care attach rate (spec 31, Depends 19/24/27/30).
-One spec per branch; dependencies merge before dependents start.
+One spec per branch; dependencies merge before dependents start, including
+sequential handoffs between different owners.
 
 ## Execution and review
 

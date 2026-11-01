@@ -12,7 +12,10 @@ Introduce the smallest backend needed for durable inquiries and content operatio
 
 Required merged specs: 02,16. Read [architecture](../../docs/architecture/SYSTEM-DESIGN.md),
 [roadmap](../../docs/planning/IMPLEMENTATION-ROADMAP.md), root tracker and affected contracts.
-Before code: Hosting/runtime choice, budget and operational owner. Unresolved external facts remain explicit gates; never fabricate them.
+Production hosting provider, region, budget and operational owner are deployment decisions for
+spec 30; they do not block local implementation and verification here. Build and test using the
+documented development environment, and keep production deployment/routing disabled until spec 30.
+Unresolved external facts remain explicit gates; never fabricate them.
 Confirm current provider/library versions from official sources at implementation and record date.
 
 ## Owned files and layer boundaries
@@ -52,6 +55,7 @@ negative access and failure tests. Do not claim unrun integration or provider ch
 
 ## Rollout, rollback and completion
 
-Deploy initially without switching inquiry traffic; rollback by disabling API routing, not deleting frontend.
+Keep production deployment and inquiry routing gated until spec 30 approves the provider, budget
+and operating plan. Once deployed, rollback by disabling API routing, not deleting the frontend.
 Update the root tracker and any changed layer responsibility/contract before pushing this branch.
 Present concrete evidence for review; do not merge or begin the next spec without the user's decision.

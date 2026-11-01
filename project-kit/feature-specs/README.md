@@ -23,7 +23,7 @@ The root tracker owns current status.
 | 15 | Performance budgets and media delivery | qa | 03,04,05,06,07,08,09,10,11,12,14,33 | [Spec](15-performance-and-assets.md) |
 | 16 | Reproducible checks and branch previews | infra | 01 | [Spec](16-ci-and-preview.md) |
 | 17 | Backend API foundation and contracts | backend | 02,16 | [Spec](17-api-foundation.md) |
-| 18 | Relational data foundation and migrations | data | 17 | [Spec](18-postgres-foundation.md) |
+| 18 | Relational data foundation and migrations | data | None | [Spec](18-postgres-foundation.md) |
 | 19 | Durable inquiry capture and notifications | backend | 08,17,18 | [Spec](19-durable-inquiries.md) |
 | 20 | Staff identity and authorization | backend | 17,18 | [Spec](20-staff-identity.md) |
 | 21 | Staff inquiry workspace | frontend | 19,20 | [Spec](21-inquiry-workspace.md) |
