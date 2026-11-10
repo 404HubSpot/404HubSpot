@@ -54,3 +54,46 @@ negative access and failure tests. Do not claim unrun integration or provider ch
 Unpublish by explicit content status; preserve public redirects when a slug is retired.
 Update the root tracker and any changed layer responsibility/contract before pushing this branch.
 Present concrete evidence for review; do not merge or begin the next spec without the user's decision.
+
+## Implementation record — 2026-11-10
+
+Status: **IMPLEMENTED** on `feature/frontend/10-11-portfolio-and-case-studies` (same branch as
+spec 10, at the user's explicit request; deviation recorded in the root tracker).
+
+### What changed
+
+- `src/views/CaseStudy.vue` — `/work/:slug` with context, challenge, role, implementation steps,
+  outcomes (each with its evidence basis), an explicit "what this does not claim" block, a facts
+  panel, an evidence panel (repository, language, README retrieval date, permission basis) and
+  service + inquiry links.
+- `src/data/projects.js` — case-study fields per project, following the future `CaseStudy`
+  entity's shape (slug, challenge, work, outcomes, publication status).
+- `src/lib/seo.js` — per-case-study title/description; unpublished or unknown slugs are `noindex`.
+- `docs/content/PORTFOLIO-EVIDENCE.md` — evidence trail, attributed measurements, held-back list.
+- `docs/content/CONTENT-REGISTER.md` — portfolio rows and the remaining approval gates.
+
+### Acceptance criteria
+
+| Criterion | Result | Evidence |
+|---|---|---|
+| Each outcome has evidence or is explicitly qualitative | Met | Every outcome carries a `basis` string rendered under it; the only quantitative claims are the author's README measurements, labelled "not independently reproduced" |
+| Unknown and draft slugs show a proper not-found experience | Met | `/work/gitswitch` (held back) and `/work/no-such-project-404-check` render the not-published state with `noindex`; asserted in `verify-ui.cjs` |
+| Gallery controls work without hover and images have captions/alt text | **Not applicable yet** | No approved screenshots exist, so no gallery ships. Covers are generated compositions with alt text. Gallery is deferred to spec 23 media work |
+| Related service and inquiry links carry useful context | Met | Service link → `/services/<slug>`; quote link → `/contact?service=<slug>` (prefill asserted); WhatsApp message names the project |
+
+### Verification
+
+- `npm run build` PASS; `git diff --check` PASS.
+- `BASE_URL=http://127.0.0.1:4173 node scripts/verify-ui.cjs` PASS — 220 grouped checks,
+  0 runtime errors. Per-slug assertions: facts panel, ≥5 story sections, ≥2 outcomes, GitHub
+  evidence link with `rel=noopener`, and a `retrieved 2026-11-10` basis on every entry.
+- Evidence captures: `docs/design/evidence/case-study-{360,1440}.png`.
+
+### Deviations and open gates
+
+- **Gallery not built.** Building gallery controls with no approved images would be scaffolding
+  for content that does not exist; the acceptance criterion is recorded as not applicable until
+  media permission lands.
+- **Slug redirects not implemented.** No slug has been retired yet; the contract in
+  `docs/contracts/public-navigation.md` requires an explicit redirect when one is.
+- **Agency-portfolio approval** remains open (same gate as spec 10).

@@ -13,6 +13,7 @@ const BASE = {
   ProgrammingClasses: ["Programming Classes in Kenya — Python, JavaScript, SQL | 404HubSpot", "Live, mentored programming classes: Python, JavaScript, SQL and Scratch. Hands-on projects, 1-on-1 guidance."],
   Contact: ["Contact 404HubSpot — Start Your Project", "Tell us your idea. WhatsApp, email or the quote form — replies within 24 hours."],
   OurProcess: ["Our Process — From Idea to Launch | 404HubSpot", "Seven clear steps from consultation to support. 50% to start, 50% on delivery."],
+  Work: ["Work — Open-Source Builds by the 404HubSpot Team", "Web, software and mobile builds by the 404HubSpot team. Every entry links to the public repository it describes, filtered by service."],
   WebDevelopment: ["Web Development Services Kenya | 404HubSpot", "Fast, high-converting websites and web apps — designed, built and supported. Fair KES pricing."],
   SoftwareDevelopment: ["Custom Software Development Kenya | 404HubSpot", "Custom systems and automation built around your business — sprints, docs, support."],
   MobileApps: ["Mobile App Development Kenya (iOS & Android) | 404HubSpot", "Native and cross-platform apps with M-Pesa, push and store deployment handled."],
@@ -36,7 +37,7 @@ function upsert(tag, attrs) {
   return el;
 }
 
-export function applySeo(route, team = [], courses = []) {
+export function applySeo(route, team = [], courses = [], projects = []) {
   let title = "404HubSpot";
   let description = BASE.Home[1];
   let noindex = false;
@@ -49,6 +50,16 @@ export function applySeo(route, team = [], courses = []) {
       description = `${c.name}: ${c.tagline} ${c.duration}. Ask us for current fees and availability.`;
     } else {
       title = "Course | 404HubSpot";
+      noindex = true;
+    }
+  } else if (route.name === "CaseStudy") {
+    const project = projects.find((p) => p.slug === route.params.slug);
+    if (project) {
+      title = `${project.title} — ${project.stack[0]} case study | 404HubSpot`;
+      description = `${project.subtitle}. ${project.summary} Read the evidence: public repository, build notes and attributed outcomes.`;
+    } else {
+      title = "Case study | 404HubSpot";
+      description = "This case study is not published. See the open-source builds we can show evidence for.";
       noindex = true;
     }
   } else if (route.name === "TeamDetail") {

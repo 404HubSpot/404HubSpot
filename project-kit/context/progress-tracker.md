@@ -16,11 +16,20 @@ It is not effective on `main` until the planning change is reviewed and merged. 
 and backup decisions for specs 17/18 are deferred to deployment spec 30; local/test implementation
 is not blocked. Retention/privacy approval is required before live inquiry collection. Planning
 verification: `git diff --check` PASS; planning-only changes; no runtime files or runtime checks.
+Spec 10 (portfolio discovery) and spec 11 (case-study detail) are IMPLEMENTED on
+`feature/frontend/10-11-portfolio-and-case-studies`, cut from `origin/main` at `4ed6850`.
+Both shipped in one branch at the user's explicit request on 2026-11-10 (Eric's specs); this is a
+documented exception to one-spec-per-branch, alongside 02b. `npm run build` PASS,
+`git diff --check` PASS, `verify-ui.cjs` PASS (220 checks, 155 route×viewport, 0 runtime
+errors). Ready for push and owner merge decision. Agency-portfolio approval stays OPEN.
 Specs 13, 14, 15, 19, 20, 24, 25, 30, 31, 32, 34 (Don-owned) stay blocked on unmerged cross-member
-dependencies (Francis: 17, 20, 34; Glory: 18; Eric/Christine: 10–12, 22, 33).
+dependencies (Francis: 17, 20, 34; Glory: 18; Eric/Christine: 12, 22, 33).
 Spec 14 owns the canonical-domain decision; spec 07 owns per-course fee decisions.
-Don-owned specs 06, 07, 09, 10, 11, 12, 33 belong to other members — never touched from this session.
-One spec/branch/PR normally; 02b is a documented single exception — do not batch further without approval.
+Don-owned specs 06, 07, 09, 12, 33 and Christine's 09 remain other members' work — never touched
+from this session. Specs 10 and 11 were the exception: the user explicitly assigned this session
+to implement them (Eric's specs) on 2026-11-10.
+One spec/branch/PR normally; 02b and 10+11 are documented exceptions — do not batch further
+without approval.
 
 ## 1. Status board — every feature, one by one, no batching
 
@@ -37,8 +46,8 @@ One spec/branch/PR normally; 02b is a documented single exception — do not bat
 | 07 | Programming classes and learning paths | PLANNED | Depends 01,02 | Class format/fee gate OPEN |
 | 08 | Contact and inquiry experience | IMPLEMENTED — committed 1798756, pushed to origin; build PASS, diff --check PASS; owner authorized merge; awaiting merge action via GitHub | Depends 01,02 | Form/meeting config gate OPEN; merge to `main` = owner action |
 | 09 | Delivery process and collaboration page | PLANNED | Depends 01,02 | — |
-| 10 | Portfolio discovery and filtering | PLANNED | Depends 01,02 | Claims/permission gate OPEN |
-| 11 | Evidence-backed case study pages | PLANNED | Depends 10 | Claims/permission gate OPEN |
+| 10 | Portfolio discovery and filtering | IMPLEMENTED — branch `feature/frontend/10-11-portfolio-and-case-studies` from `origin/main` `4ed6850`; `/work` with URL-bound service filters, empty + unknown-filter states; `npm run build` PASS, `git diff --check` PASS, `verify-ui` PASS (220 checks) | Depends 01,02 (merged) | Agency-portfolio approval OPEN; screenshots/media permission OPEN; merge to `main` = owner action |
+| 11 | Evidence-backed case study pages | IMPLEMENTED — same branch (user-requested 10+11 batch); `/work/:slug` with per-outcome evidence basis, facts/evidence panels, `noindex` not-published state for held-back and unknown slugs; `verify-ui` asserts every slug | Depends 10 (same branch) | Gallery deferred until media permission (spec 23); slug redirects not yet needed; agency-portfolio approval OPEN |
 | 12 | Company story and team profiles | PLANNED | Depends 01,02 | Portrait/profile gate OPEN |
 | 13 | Sitewide accessibility and navigation completion | PLANNED | Depends 03,04,05,06,07,08,09,10,11,12,33 | — |
 | 14 | Search metadata, structured data and sharing | PLANNED | Depends 02,10,11,12 | Domain gate OPEN |
@@ -130,6 +139,42 @@ Per-file hashes: docs/design/evidence/source-snapshot.json; the feature commit c
 - Browser checks NOT run: Playwright not installed in this environment (same limitation recorded for spec 04). `scripts/verify-ui.cjs` price assertions for `/services/mobile-apps` remain satisfied by construction (exact `pricing.mobile` strings), but this is a code-level statement, not a browser run — recorded as an open operator gate.
 - Tracker rows 04→MERGED (correction: PR #9 merged `cbb14f1` proves it; not Francis's code — status-board bookkeeping only) and 05→complete; execution chain updated.
 
+### 3b3. Features 10 + 11 portfolio discovery and case studies (branch, 2026-11-10)
+
+- Branch `feature/frontend/10-11-portfolio-and-case-studies` cut from fetched `origin/main` at
+  `4ed6850`. Two specs in one branch at the user's explicit request (Eric's specs); recorded as a
+  deviation from one-spec-per-branch.
+- Content basis: five public team repositories, each README read 2026-11-10. No client names,
+  testimonials, screenshots or invented metrics. Full trail in `docs/content/PORTFOLIO-EVIDENCE.md`.
+  Held back: JCSM (ministry permission), gitswitch (no docs), Wildlife Guardians (starter README).
+- `npm run build`: PASS; 81 modules; 0 errors. CSS 61.33 kB (11.84 gzip); JS 372.54 kB
+  (130.75 gzip); lottie 307.91 kB; HTML 3.05 kB. Existing warnings only (caniuse-lite age,
+  lottie eval, static/dynamic import notes).
+- `git diff --check`: PASS.
+- `BASE_URL=http://127.0.0.1:4173 node scripts/verify-ui.cjs`: PASS — 220 grouped checks,
+  155 route×viewport (31 routes × 360/768/1024/1440/1920), 0 runtime page errors.
+  Chromium 138.0.7204.23, Playwright 1.53.1. New assertions: card count/order, filter URL,
+  browser-back restore, keyboard filter activation, empty state + reset, unknown-filter fallback,
+  per-slug case-study structure, GitHub evidence links with `rel=noopener`, contact prefill from a
+  case study, service link navigation, and `noindex` not-published state for held-back/unknown slugs.
+- Evidence captures: `docs/design/evidence/work-{360,1440}.png`, `work-empty-{360,1440}.png`,
+  `case-study-{360,1440}.png`; landing and software captures regenerated by the same run.
+- Incidental fix (owner + consumer docs updated here): `src/App.vue` skipped the route transition
+  under `prefers-reduced-motion: reduce` because the JS hooks' synchronous `done()` under
+  `mode="out-in"` left the incoming view unmounted — every in-app navigation blanked the page for
+  reduced-motion users. Reproduced on pre-existing routes (`/our-process` → `/programming-classes`),
+  fixed by bypassing `<transition>` when reduced motion is active, and re-verified.
+- Related hardening: `useReveal` and the `App.vue` route transition now skip their
+  hide-in-then-animate-in step when the document is hidden. A backgrounded tab runs no
+  animation frames, so the from-state could otherwise leave the page permanently invisible.
+  Verified by loading `/work` in a backgrounded tab: 5 cards render with visible heading text.
+- Test-harness hardening in `scripts/verify-ui.cjs`: content sweep runs with entrance animations
+  disabled (motion is still exercised in the software reveal block and the reduced-motion
+  assertions), route failures now name the route and width, and two `waitForFunction` predicates no
+  longer throw when the target has not mounted yet. No assertion was removed or weakened.
+- Browser tooling: `npm ci` (116 packages) plus a local `npx playwright install chromium`; no
+  manifest or lockfile change.
+
 ## 4. Contract synchronization and deviations
 
 Updated public-navigation contract, canonical UI tokens/rules/registry, owner and consumer context,
@@ -138,6 +183,11 @@ Route shapes unchanged; new scroll behavior documented. Existing detail styles r
 Future platform contracts are explicitly drafts, not implemented APIs. Layer kits route status here.
 2026-10-16: service-playbook sync branch `docs/web/35-service-playbook-sync` recorded — report,
 team assignments, planning spec 35, tracker row, AGENTS hard rules R1–R4; NO CODE changed.
+2026-11-10: portfolio contract added to `docs/contracts/public-navigation.md` (`/work`,
+`/work/:slug`, `?service=` filter semantics, held-back slug behaviour, inquiry links). Content
+register gained portfolio rows and gates; new `docs/content/PORTFOLIO-EVIDENCE.md` records the
+evidence trail. UI registry gained ProjectCard, Work and CaseStudy rows. `App.vue` reduced-motion
+fix documented in 3b3 and in the spec 10 record.
 No baseline .baseline/Husky/CI workflow tree injected; baseline tooling remains in its source repo.
 No Figma file created: editable local HTML board and actual screenshots provide review artifacts.
 Official documentation fallback used because no Context7 MCP tool was available; sources are in spec.
@@ -148,4 +198,9 @@ Spec 02 open gates: confirm production canonical domain (spec 14); confirm cours
 Production/provider gates remain: Brevo sender/key/inbox + Meet ID; `CLERK_SECRET_KEY` + `clerk auth login`/`clerk link` (spec 19/34); production deployment not run.
 Existing Contact form/meeting placeholders remain (demo until IDs set); LanguageCard phone mismatch FIXED in 02b via shared whatsappUrl.
 External social destinations not live-verified; manual screen-reader/Firefox/WebKit checks not run.
+Portfolio gates (specs 10/11): written approval to feature the five open-source builds as
+404HubSpot portfolio work is not recorded — publication currently rests on public authorship plus
+attribution; project screenshots and gallery media need permission (spec 23); JCSM stays
+unpublished until the ministry approves attribution. Slug redirects are required only when a
+published slug is retired.
 No backend, database, MCP, AI, retention, security or deployment tests are claimed as passing.

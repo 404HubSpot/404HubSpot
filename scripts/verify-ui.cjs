@@ -19,6 +19,13 @@ const courseSlugs = [
   "sql-databases",
   "scratch-beginners",
 ];
+const projectSlugs = [
+  "sycx",
+  "resusensei",
+  "word-of-truth",
+  "parrot-blackbox",
+  "pet-shelter-api",
+];
 const routes = [
   "/",
   "/programming-classes",
@@ -31,6 +38,10 @@ const routes = [
   "/services/graphics-design",
   "/team/don-artkins",
   ...courseSlugs.map((slug) => `/classes/${slug}`),
+  "/work",
+  ...projectSlugs.map((slug) => `/work/${slug}`),
+  "/work/gitswitch",
+  "/work/no-such-project-404-check",
   "/no-such-page-404-check",
 ];
 (async () => {
@@ -41,15 +52,48 @@ const routes = [
       : {}),
   });
   const page = await browser.newPage();
+  // The content/navigation sweep runs with entrance animations disabled so text
+  // and ARIA-role queries never race the scroll-reveal. Animation itself is
+  // exercised deliberately in the software-page reveal block and the
+  // prefers-reduced-motion assertions later.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   const errors = [];
   let checks = 0;
+  // Scroll to an element and wait until the entrance animation has actually
+  // revealed it, so text assertions read rendered copy rather than "".
+  const revealIntoView = async (selector) => {
+    const target = page.locator(selector).first();
+    await target.scrollIntoViewIfNeeded();
+    await page.waitForFunction(
+      (sel) => {
+        const el = document.querySelector(sel);
+        if (!el) return false;
+        for (
+          let node = el;
+          node && node !== document.documentElement;
+          node = node.parentElement
+        ) {
+          const style = getComputedStyle(node);
+          if (style.visibility === "hidden" || style.opacity === "0")
+            return false;
+        }
+        return true;
+      },
+      selector,
+      { timeout: 5000 },
+    );
+  };
   page.on("pageerror", (error) => errors.push(error.message));
   fs.mkdirSync("docs/design/evidence", { recursive: true });
   for (const width of widths) {
     await page.setViewportSize({ width, height: 1000 });
     for (const route of routes) {
       await page.goto(base + route);
-      await page.locator("h1, h2").first().waitFor();
+      try {
+        await page.locator("h1, h2").first().waitFor({ timeout: 15000 });
+      } catch {
+        throw new Error(`${route} at ${width}px: no visible h1/h2 rendered`);
+      }
       assert.equal(await page.locator("header.site-header").count(), 1);
       assert.equal(await page.locator("footer.site-footer").count(), 1);
       const overflow = await page.evaluate(
@@ -91,12 +135,17 @@ const routes = [
     checks++;
   }
   await page.goto(base);
+  // Reveal the section first: ARIA role queries exclude elements that are still
+  // hidden by the scroll-reveal animation.
+  await page.locator("#services").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(900);
   const webDevHubLink = page
     .locator("#services")
     .getByRole("link", { name: "Web Development", exact: true });
   assert.equal(await webDevHubLink.count(), 1);
   assert.equal(await webDevHubLink.getAttribute("href"), "/services/web-development");
   checks += 2;
+  await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto(base + "/services/web-development");
   assert.equal(await page.locator(".web-dev-scope-list").count(), 2);
   assert.equal(await page.locator(".web-dev-scope-list li").count(), 8);
@@ -120,6 +169,7 @@ const routes = [
   assert.equal(await page.locator(".software-capability-card").count(), 3);
   assert.equal(await page.locator(".software-process .process-row").count(), 5);
   assert.equal(await page.locator(".software-example-card").count(), 3);
+  await revealIntoView(".software-example-note");
   assert.match(
     await page.locator(".software-example-note").innerText(),
     /illustrative scenarios only.*not client case studies/i,
@@ -134,9 +184,10 @@ const routes = [
   );
   assert.match(softwareWhatsApp.searchParams.get("text"), /software development project/i);
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForFunction(
-    () => getComputedStyle(document.querySelector(".software-closing")).visibility === "visible",
-  );
+  await page.waitForFunction(() => {
+    const el = document.querySelector(".software-closing");
+    return !!el && getComputedStyle(el).visibility === "visible";
+  });
   const softwareQuoteLink = page
     .locator(".software-closing")
     .getByRole("link", { name: /Request a scoped quote/ });
@@ -144,9 +195,13 @@ const routes = [
   await softwareQuoteLink.click();
   await page.waitForURL("**/contact?service=software-development");
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForFunction(
-    () => getComputedStyle(document.querySelector("#service").closest("section")).visibility === "visible",
-  );
+  await page.waitForFunction(() => {
+    const field = document.querySelector("#service");
+    return (
+      !!field &&
+      getComputedStyle(field.closest("section")).visibility === "visible"
+    );
+  });
   assert.equal(await page.locator("#service").inputValue(), "Software Development");
   checks += 10;
   for (const width of [360, 1440]) {
@@ -167,6 +222,7 @@ const routes = [
     });
     checks++;
   }
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto(base + "/programming-classes");
   const courseCards = page.locator(".courses-grid .service-card");
   assert.equal(await courseCards.count(), courseSlugs.length);
@@ -186,6 +242,114 @@ const routes = [
       await page.locator('meta[name="description"]').getAttribute("content"),
       /KES\s[\d,]+|Fee\sKES/i,
     );
+    checks++;
+  }
+  // Spec 10 — portfolio discovery: filters, URL state, empty + unknown states.
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto(base + "/work");
+  await page.locator(".project-card").first().waitFor();
+  assert.equal(await page.locator(".project-card").count(), projectSlugs.length);
+  assert.equal(
+    await page
+      .getByRole("button", { name: /^All work/ })
+      .getAttribute("aria-pressed"),
+    "true",
+  );
+  assert.deepEqual(
+    await page.locator(".project-card h3").allTextContents(),
+    ["SycX", "ResuSensei", "Word of Truth", "parrot-blackbox", "Pet Shelter API"],
+  );
+  await page.getByRole("button", { name: /^Software development/ }).click();
+  await page.waitForURL("**/work?service=software-development");
+  assert.equal(await page.locator(".project-card").count(), 2);
+  assert.equal(
+    await page
+      .getByRole("button", { name: /^Software development/ })
+      .getAttribute("aria-pressed"),
+    "true",
+  );
+  await page.goBack();
+  await page.waitForURL(`${base}/work`);
+  assert.equal(await page.locator(".project-card").count(), projectSlugs.length);
+  await page.getByRole("button", { name: /^Mobile apps/ }).focus();
+  await page.keyboard.press("Enter");
+  await page.waitForURL("**/work?service=mobile-apps");
+  assert.equal(await page.locator(".project-card").count(), 1);
+  checks++;
+  await page.goto(base + "/work?service=graphics-design");
+  assert.equal(await page.locator(".project-card").count(), 0);
+  assert.match(await page.locator(".work-empty h2").innerText(), /Graphics design/);
+  await page.getByRole("button", { name: /Show all work/ }).click();
+  await page.waitForURL(`${base}/work`);
+  assert.equal(await page.locator(".project-card").count(), projectSlugs.length);
+  await page.goto(base + "/work?service=design");
+  assert.equal(await page.locator(".work-note").isVisible(), true);
+  assert.equal(await page.locator(".project-card").count(), projectSlugs.length);
+  checks++;
+  // Spec 11 — case study detail, evidence attribution, unpublished + unknown slugs.
+  for (const slug of projectSlugs) {
+    await page.goto(`${base}/work/${slug}`);
+    assert.equal(await page.locator(".case-facts").count(), 1);
+    assert.ok((await page.locator(".case-section h2").count()) >= 5);
+    assert.ok((await page.locator(".case-outcomes li").count()) >= 2);
+    const repoLink = page.locator(".case-evidence a").first();
+    assert.match(await repoLink.getAttribute("href"), /^https:\/\/github\.com\//);
+    assert.match(await repoLink.getAttribute("rel"), /noopener/);
+    assert.match(
+      await page.locator(".case-outcomes .case-basis").first().innerText(),
+      /retrieved 2026-11-10/,
+    );
+    checks++;
+  }
+  await page.goto(base + "/work/sycx");
+  assert.equal(await page.locator("h1").first().innerText(), "SycX");
+  assert.match(await page.locator(".case-facts").innerText(), /Don Artkins/);
+  const caseQuote = page.locator(".case-inquiry a.action");
+  assert.equal(
+    await caseQuote.getAttribute("href"),
+    "/contact?service=mobile-apps",
+  );
+  await caseQuote.click();
+  await page.waitForURL("**/contact?service=mobile-apps");
+  assert.equal(await page.locator("#service").inputValue(), "Mobile Apps");
+  checks++;
+  await page.goto(base + "/work/sycx");
+  await page.locator(".case-facts dd a", { hasText: "Mobile apps" }).click();
+  await page.waitForURL("**/services/mobile-apps");
+  checks++;
+  for (const slug of ["gitswitch", "no-such-project-404-check"]) {
+    await page.goto(`${base}/work/${slug}`);
+    assert.match(
+      await page.locator("h1").first().innerText(),
+      /isn't published/i,
+    );
+    assert.equal(await page.locator(".case-facts").count(), 0);
+    assert.match(
+      await page.locator('meta[name="robots"]').getAttribute("content"),
+      /noindex/,
+    );
+    checks++;
+  }
+  // Evidence captures: discovery (list + empty) and a case study, mobile + desktop.
+  const capture = async (route, file) => {
+    await page.goto(base + route);
+    const height = await page.evaluate(() => document.body.scrollHeight);
+    for (let y = 0; y < height; y += 500) {
+      await page.evaluate((top) => window.scrollTo(0, top), y);
+      await page.waitForTimeout(110);
+    }
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(450);
+    await page.screenshot({
+      path: `docs/design/evidence/${file}`,
+      fullPage: true,
+    });
+  };
+  for (const width of [360, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await capture("/work", `work-${width}.png`);
+    await capture("/work/parrot-blackbox", `case-study-${width}.png`);
+    await capture("/work?service=graphics-design", `work-empty-${width}.png`);
     checks++;
   }
   await page.setViewportSize({ width: 1440, height: 1000 });

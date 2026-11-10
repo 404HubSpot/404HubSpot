@@ -1,15 +1,22 @@
 <template>
   <div id="app">
     <router-view v-slot="{ Component, route }">
+      <!-- Reduced motion skips the transition entirely. Calling the JS hooks'
+           `done` synchronously under mode="out-in" left the incoming view
+           unmounted (blank page) on in-app navigation. -->
       <transition
+        v-if="!reducedMotion"
         :css="false"
         @before-enter="beforeEnter"
         @enter="enter"
         @leave="leave"
         mode="out-in"
       >
-        <component :is="Component" :key="route.fullPath" />
+        <!-- Keyed by path so query-only changes (e.g. /work?service=...) do not
+             remount and re-animate the whole page. -->
+        <component :is="Component" :key="route.path" />
       </transition>
+      <component v-else :is="Component" :key="route.path" />
     </router-view>
   </div>
 </template>
@@ -23,9 +30,25 @@ const reduced = () =>
 
 export default {
   name: "App",
+  data() {
+    return { reducedMotion: reduced() };
+  },
+  mounted() {
+    this.motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    this.onMotionChange = (event) => {
+      this.reducedMotion = event.matches;
+    };
+    this.motionQuery.addEventListener("change", this.onMotionChange);
+  },
+  beforeUnmount() {
+    this.motionQuery?.removeEventListener("change", this.onMotionChange);
+  },
   methods: {
     beforeEnter(el) {
-      if (!reduced()) gsap.set(el, { autoAlpha: 0, y: 18 });
+      // Never hide the view in a background tab: requestAnimationFrame does not
+      // run there, so the entrance would leave the page stuck invisible.
+      if (!reduced() && document.visibilityState === "visible")
+        gsap.set(el, { autoAlpha: 0, y: 18 });
     },
     enter(el, done) {
       if (reduced()) return done();

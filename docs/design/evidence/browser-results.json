@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-09-30T16:37:57.672Z",
-  "checks": 75,
-  "routeViewportChecks": 60,
+  "checkedAt": "2026-11-10T13:37:20.243Z",
+  "checks": 220,
+  "routeViewportChecks": 155,
   "runtimeErrors": [],
-  "browser": "130.0.6723.31",
-  "playwright": "1.63.0",
+  "browser": "138.0.7204.23",
+  "playwright": "1.53.1",
   "limitations": "Chromium only; no live contact submission, external social validation, or screen-reader audit."
 }

@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './style.css'
 import './styles/landing.css'
+import './styles/portfolio.css'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 

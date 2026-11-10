@@ -1,8 +1,9 @@
 # Feature specifications
 
-33 independently reviewable outcomes. Specs 01, 02 and 03 are merged to organization `main`;
-spec 04 is in progress. Dependencies define eligibility, not permission to batch implementation.
-The root tracker owns current status.
+33 independently reviewable outcomes. Dependencies define eligibility, not permission to batch
+implementation. The root tracker owns current status — read section 0 there before starting work.
+Specs 10 and 11 are IMPLEMENTED on `feature/frontend/10-11-portfolio-and-case-studies`
+(user-requested single branch) and await the owner's merge decision.
 
 | ID | Feature | Owner | Depends on | Spec |
 |---|---|---|---|---|
