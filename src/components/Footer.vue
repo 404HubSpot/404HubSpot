@@ -28,6 +28,7 @@
         <div>
           <h2>Explore</h2>
           <router-link to="/">Home</router-link
+          ><router-link to="/work">Work</router-link
           ><router-link to="/programming-classes"
             >Programming Classes</router-link
           ><router-link to="/our-process">Our Process</router-link

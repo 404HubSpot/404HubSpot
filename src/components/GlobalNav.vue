@@ -60,6 +60,7 @@
             /></router-link>
           </div>
         </div>
+        <router-link class="nav-link" to="/work">Work</router-link>
         <router-link class="nav-link" to="/programming-classes"
           >Programming Classes</router-link
         >

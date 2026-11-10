@@ -2,6 +2,8 @@
 
 Keep `/`, `/programming-classes`, `/contact`, `/our-process`, and `/services/` paths
 `web-development`, `software-development`, `mobile-apps`, `m-pesa-integration`, `graphics-design`.
+Portfolio routes are `/work` (discovery) and `/work/:slug` (case study). `Work` appears in the
+shared nav after Services and in the footer Explore column.
 Landing anchors: services, learning, process, team. Router hash navigation offsets sticky header;
 new routes start at the top; browser history restores saved scroll positions.
 
@@ -17,4 +19,17 @@ The contact page accepts `?service=software-development` as a presentation-only 
 the existing Software Development form option. It does not submit the form or bypass validation.
 
 Home service data feeds navbar, footer and ServiceCard so destinations cannot drift.
+
+## Portfolio contract (specs 10, 11)
+
+`/work` lists only entries with `published: true` in `src/data/projects.js`. The selected filter
+lives in `?service=<service-slug>` (`web-development`, `software-development`, `mobile-apps`,
+`m-pesa-integration`, `graphics-design`); no query means all work. Unknown values fall back to
+all work with a visible notice, and filter changes push history so Back restores the previous
+selection. A category with no published work shows the empty state with a reset action.
+
+`/work/:slug` renders only published entries. Held-back or unknown slugs render the
+"not published" state with `noindex`; they are never linked from `/work`. Case-study inquiry
+links use `/contact?service=<first service slug>` and a WhatsApp message naming the project.
+Slugs are stable: retiring one requires an explicit redirect or it becomes a not-published page.
 Rollback: revert this feature commit; existing baseline routes/assets remain available.

@@ -16,9 +16,12 @@
 | Auth shell | src/views/auth/SignIn.vue + SignUp.vue (@clerk/vue 2.5.7) | RETIRED 2026-09-30 per owner order — files + dep removed; plan lives in [spec 34](34-customer-auth.md). Lessons kept there (Show vs SignedIn, catch-all routes, appearance, dashboard reset prerequisite). |
 | Team data | src/data/site.js team; Teamsection | Five members; Glory Kinya default (photo/bio/links TBD); initials fallback |
 | TeamDetail | src/views/TeamDetail.vue; `/team/:slug` | GitHub-verified bio/stats/repos; prev/next; cards link out, details on page |
+| ProjectCard | src/components/portfolio/ProjectCard.vue; Work | Generated cover (tone + monogram, `role="img"` + alt), builder attribution, service tags, repository link, case-study link only when a published detail exists |
+| Work | src/views/Work.vue; `/work` | PageHero + filter buttons (`aria-pressed`, URL `?service=`), live result count, unknown-filter notice, empty state with reset, publish-standard panel |
+| CaseStudy | src/views/CaseStudy.vue; `/work/:slug` | Story sections, per-outcome evidence basis, facts/evidence panels, service + inquiry links, not-published state with `noindex` |
 | ThemeToggle | src/components/ThemeToggle.vue; GlobalNav | Light/System/Dark segmented control; localStorage + OS match; pre-paint init; theme-color sync |
 | SEO | src/lib/seo.js + router.afterEach; index.html; public/{sitemap.xml,robots.txt} | Per-route title/desc/canonical/OG/Twitter; 404 noindex; JSON-LD org+site; domain provisional (VITE_SITE_URL) |
 | Newsletter | PLANNED (spec 19) | Contract + welcome template ready; no frontend/backend code ships until the fullstack phase |
 | Service data | src/data/site.js; Home/Nav/Footer/Card | Six services, route, tags, icon, tone; inquiry builder encodes message once |
 
-Future shared form, case-study, FAQ, consent and admin components register in their owning specs.
+Future shared form, FAQ, consent and admin components register in their owning specs.

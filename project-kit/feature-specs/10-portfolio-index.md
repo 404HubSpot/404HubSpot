@@ -54,3 +54,52 @@ negative access and failure tests. Do not claim unrun integration or provider ch
 Keep /work unpublished until content readiness; route rollback preserves redirects if already public.
 Update the root tracker and any changed layer responsibility/contract before pushing this branch.
 Present concrete evidence for review; do not merge or begin the next spec without the user's decision.
+
+## Implementation record — 2026-11-10
+
+Status: **IMPLEMENTED** on `feature/frontend/10-11-portfolio-and-case-studies` (cut from
+`origin/main` at `4ed6850`). Specs 10 and 11 shipped in one branch at the user's explicit
+request; recorded as a deviation in the root tracker. Owner: Eric (frontend).
+
+### What changed
+
+- `src/data/projects.js` — project summaries (`id`, `slug`, `title`, `services`, `cover` +
+  `cover.alt`, `summary`, `published`, `publishedDetail`) plus `heldBack` slugs, filter list,
+  `normaliseFilter`/`projectsFor`/`findProject` helpers. Five published entries, three held back.
+- `src/views/Work.vue` — `/work` with service filters bound to `?service=`, live result count,
+  unknown-filter notice, filtered-empty state with reset, and a "what we publish" panel.
+- `src/components/portfolio/ProjectCard.vue` — cover composition, builder attribution, service
+  tags, repository link, case-study link only when a published detail exists.
+- `src/router/index.js` — `/work` and `/work/:slug`; `src/lib/seo.js` — Work metadata.
+- `src/components/GlobalNav.vue`, `src/components/Footer.vue`, `docs/contracts/public-navigation.md`
+  — "Work" entry point and the portfolio route/filter contract.
+- `src/styles/portfolio.css` — page-scoped styles on existing theme tokens.
+
+### Acceptance criteria
+
+| Criterion | Result | Evidence |
+|---|---|---|
+| Every card corresponds to approved evidence and publication permission | Met as attributed public authorship | Each card links to the repository it was written from; basis and open consent gate recorded in [portfolio evidence register](../../docs/content/PORTFOLIO-EVIDENCE.md) |
+| Filter URLs are shareable and browser-back restores selection | Met | `verify-ui.cjs`: filter click → `?service=software-development` with 2 cards; `goBack()` → `/work` with 5 cards; direct load of a filtered URL selects it |
+| Empty results provide a clear recovery action | Met | `?service=graphics-design` renders `.work-empty` and "Show all work" returns to `/work`; unknown `?service=design` falls back to all work with a notice |
+| Grid and images are responsive and keyboard accessible | Met | 5 viewports × routes cover `/work`; filters are `<button aria-pressed>` activated by Enter; covers are `role="img"` with alt text |
+
+### Not done, on purpose
+
+- No screenshots or product imagery: covers are generated compositions. Media permission and an
+  accessible gallery remain open (tracked with spec 23).
+- No client names, testimonials or metrics. Only one entry carries numbers, quoted as the
+  author's own README measurements.
+
+### Verification
+
+- `npm run build` PASS; `git diff --check` PASS.
+- `BASE_URL=http://127.0.0.1:4173 node scripts/verify-ui.cjs` PASS — 220 grouped checks,
+  155 route×viewport, 0 runtime errors (Chromium 138.0.7204.23, Playwright 1.53.1).
+- Evidence captures: `docs/design/evidence/work-{360,1440}.png`, `work-empty-{360,1440}.png`.
+
+### Open gate
+
+Written approval to feature these repositories as 404HubSpot portfolio work is not recorded.
+Publication currently rests on public authorship plus attribution; see the evidence register for
+the exact basis and how to unpublish.

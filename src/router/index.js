@@ -9,6 +9,8 @@ import MobileApps from '../views/services/MobileApps.vue'
 import MPesaIntegration from '../views/services/MPesaIntegration.vue'
 import GraphicsDesign from '../views/services/GraphicsDesign.vue'
 import TeamDetail from '../views/TeamDetail.vue'
+import Work from '../views/Work.vue'
+import CaseStudy from '../views/CaseStudy.vue'
 import NotFound from '../views/NotFound.vue'
 import CourseDetail from '../views/CourseDetail.vue'
 
@@ -17,6 +19,8 @@ const routes = [
   { path: '/programming-classes', name: 'ProgrammingClasses', component: ProgrammingClasses },
   { path: '/contact', name: 'Contact', component: Contact },
   { path: '/our-process', name: 'OurProcess', component: OurProcess },
+  { path: '/work', name: 'Work', component: Work },
+  { path: '/work/:slug', name: 'CaseStudy', component: CaseStudy },
   { path: '/services/web-development', name: 'WebDevelopment', component: WebDevelopment },
   { path: '/services/software-development', name: 'SoftwareDevelopment', component: SoftwareDevelopment },
   { path: '/services/mobile-apps', name: 'MobileApps', component: MobileApps },
@@ -41,7 +45,8 @@ router.afterEach(async (to) => {
   const { applySeo } = await import("../lib/seo");
   const { team } = await import("../data/site");
   const { courses } = await import("../data/courses");
-  applySeo(to, team, courses);
+  const { projects } = await import("../data/projects");
+  applySeo(to, team, courses, projects);
 });
 
 export default router

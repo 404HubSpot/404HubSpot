@@ -14,7 +14,15 @@ export function useReveal(rootRef, options = {}) {
       : { matches: true };
 
   onMounted(() => {
-    if (!rootRef.value || reduceQuery.matches) return;
+    // A hidden document never advances requestAnimationFrame, so GSAP's from
+    // state would stay applied and leave the content invisible. Skip the
+    // entrance entirely rather than hide content an animation cannot reveal.
+    if (
+      !rootRef.value ||
+      reduceQuery.matches ||
+      document.visibilityState === "hidden"
+    )
+      return;
     ctx = gsap.context(() => {
       gsap.utils.toArray("[data-reveal]").forEach((el, i) => {
         gsap.fromTo(

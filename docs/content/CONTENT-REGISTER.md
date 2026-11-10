@@ -56,6 +56,24 @@ references remain in `src/data/courses.js`.
 | course.sql-databases | SQL & Databases | Held; confirm individually |
 | course.scratch-beginners | Scratch for Beginners | Held; confirm individually |
 
+## Portfolio entries (specs 10, 11 — added 2026-11-10)
+
+Five open-source builds are published on `/work`, each linked to the public repository it
+was written from. Full evidence trail, held-back list and open gates live in the
+[portfolio evidence register](./PORTFOLIO-EVIDENCE.md). These are team builds, not client
+engagements, and no client name, testimonial or screenshot is republished.
+
+| ID | Public entry | Builder | Evidence | Status |
+|---|---|---|---|---|
+| project.sycx | SycX — AI study companion | Don Artkins | `DonArtkins/SycX`, `DonArtkins/SycX-API` READMEs, read 2026-11-10 | Published; agency-portfolio approval open |
+| project.resusensei | ResuSensei — resume analyzer | Glory Kinya | `kiki-glow/ResuSensei` README, read 2026-11-10 | Published; agency-portfolio approval open |
+| project.word-of-truth | Word of Truth — reading PWA | Glory Kinya | `kiki-glow/Word-Of-Truth` README, read 2026-11-10 | Published; agency-portfolio approval open |
+| project.parrot-blackbox | parrot-blackbox — backup CLI | Don Artkins | `DonArtkins/parrot-blackbox` README, read 2026-11-10 | Published; author-reported measurements attributed in place |
+| project.pet-shelter-api | Pet Shelter API | Glory Kinya | `kiki-glow/pet_shelter_api` README, read 2026-11-10 | Published; sample data only |
+
+Deliberately unpublished: JCSM (needs ministry permission), gitswitch (no documentation),
+Wildlife Guardians (starter README only). See the evidence register for reasons.
+
 ## Decisions still needed
 
 - Confirm the production canonical domain before changing SEO canonical URLs,
@@ -65,3 +83,7 @@ references remain in `src/data/courses.js`.
   any media; see the [asset register](./ASSET-REGISTER.md).
 - Keep client names, testimonials, awards, performance metrics, and case studies
   unpublished unless supporting evidence and publication permission are recorded.
+- Confirm written approval to feature the five open-source builds as 404HubSpot portfolio
+  work (specs 10/11 gate). Until then they are published as attributed team builds.
+- Approve project screenshots and captions before any gallery ships; the current covers
+  are generated compositions, not product screenshots.
